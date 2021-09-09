@@ -1,14 +1,16 @@
 .top_left_logo {
-  width: 250px;
+  width: 125px;
   float: left;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 25px;
+  margin-top: 25px;
 }
 
 body {
   margin: 0;
   padding: 0;
+  background: white;
   font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
 .center_box {
@@ -16,21 +18,27 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
+  width: 50%;
+  max-width: 500px;
+  height: auto;
+  max-height: 500px;
   background-color: #f5f5f5;
   border-radius: 10px;
-  zoom: 3;
+
   -moz-transform: scale(0.5);
 }
 
 .center_box h1 {
   text-align: center;
+  margin: 10px;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
 
 .center_box h2 {
   text-align: center;
+  margin: 10px;
+  margin-bottom: 15px;
   font-size: 16px;
 }
 
@@ -46,6 +54,7 @@ form .text_field {
 }
 
 .text_field input {
+  display: block;
   width: 100%;
   padding: 0 5px;
   height: 40px;
@@ -56,6 +65,7 @@ form .text_field {
 }
 
 .text_field label {
+  display: block;
   position: absolute;
   top: 50%;
   left: 5px;
@@ -113,6 +123,22 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  border-color: #3e05c4;
+  border-color: gray;
   transition: 0.5s;
+}
+
+@media (max-width: 768px){
+  .center_box{
+    width: 75%;
+  }
+}
+
+@media (max-width: 480px){
+  .center_box{
+    width: 90%;
+  }
+
+/*  body{
+    background: #f5f5f5;
+  }*/
 }
