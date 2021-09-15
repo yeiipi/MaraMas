@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-Bold.eot');
+    src: local('NeutrifPro-Bold'),
+        url('NeutrifPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-Bold.woff2') format('woff2'),
+        url('NeutrifPro-Bold.woff') format('woff'),
+        url('NeutrifPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-Light.eot');
+    src: local('NeutrifPro-Light'),
+        url('NeutrifPro-Light.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-Light.woff2') format('woff2'),
+        url('NeutrifPro-Light.woff') format('woff'),
+        url('NeutrifPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-MediumItalic.eot');
+    src: local('NeutrifPro-MediumItalic'),
+        url('NeutrifPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-MediumItalic.woff2') format('woff2'),
+        url('NeutrifPro-MediumItalic.woff') format('woff'),
+        url('NeutrifPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-Medium.eot');
+    src: local('NeutrifPro-Medium'),
+        url('NeutrifPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-Medium.woff2') format('woff2'),
+        url('NeutrifPro-Medium.woff') format('woff'),
+        url('NeutrifPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-BoldItalic.eot');
+    src: local('NeutrifPro-BoldItalic'),
+        url('NeutrifPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-BoldItalic.woff2') format('woff2'),
+        url('NeutrifPro-BoldItalic.woff') format('woff'),
+        url('NeutrifPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-LightItalic.eot');
+    src: local('NeutrifPro-LightItalic'),
+        url('NeutrifPro-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-LightItalic.woff2') format('woff2'),
+        url('NeutrifPro-LightItalic.woff') format('woff'),
+        url('NeutrifPro-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-SemiBold.eot');
+    src: local('NeutrifPro-SemiBold'),
+        url('NeutrifPro-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-SemiBold.woff2') format('woff2'),
+        url('NeutrifPro-SemiBold.woff') format('woff'),
+        url('NeutrifPro-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-Regular.eot');
+    src: local('NeutrifPro-Regular'),
+        url('NeutrifPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-Regular.woff2') format('woff2'),
+        url('NeutrifPro-Regular.woff') format('woff'),
+        url('NeutrifPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-RegularItalic.eot');
+    src: local('NeutrifPro-RegularItalic'),
+        url('NeutrifPro-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-RegularItalic.woff2') format('woff2'),
+        url('NeutrifPro-RegularItalic.woff') format('woff'),
+        url('NeutrifPro-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('NeutrifPro-SemiBoldItalic.eot');
+    src: local('NeutrifPro-SemiBoldItalic'),
+        url('NeutrifPro-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeutrifPro-SemiBoldItalic.woff2') format('woff2'),
+        url('NeutrifPro-SemiBoldItalic.woff') format('woff'),
+        url('NeutrifPro-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+

@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Neutrif Pro';
+  src: url('../resources/Fonts/NeutrifPro-Light.eot');
+  src: url('../resources/Fonts/NeutrifPro-Bold'),
+      url('../resources/Fonts/NeutrifPro-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../resources/Fonts/NeutrifPro-Bold.woff2') format('woff2'),
+      url('../resources/Fonts/NeutrifPro-Bold.woff') format('woff'),
+      url('../resources/Fonts/NeutrifPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 .top_left_logo {
   width: 400px;
   padding-top: 150px;
@@ -63,8 +75,10 @@ body {
   color: white;
   line-height: 1.5;
 
-  font-family: Georgia, 'Times New Roman', Times, serifs;
-  font-size: 20px;
+  font-family: "Neutrif Pro";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 25px;
  
 }
 .center_box h1 {
@@ -75,8 +89,8 @@ body {
   color: #00487d
   ;
 
-  font-family: fantasy;
-  font-size: 50px;
+  font-family: 'Neutrif Pro';
+  font-size: 70px;
  
 }
 
