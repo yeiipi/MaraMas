@@ -1,11 +1,23 @@
-
+@font-face {
+    font-family: 'Neutrif Pro';
+    src: url('../resources/Fonts/NeutrifPro-Light.eot');
+    src: url('../resources/Fonts/NeutrifPro-Bold'),
+        url('../resources/Fonts/NeutrifPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../resources/Fonts/NeutrifPro-Bold.woff2') format('woff2'),
+        url('../resources/Fonts/NeutrifPro-Bold.woff') format('woff'),
+        url('../resources/Fonts/NeutrifPro-Bold.ttf') format('truetype');
+    font-weight: 0;
+    font-style: normal;
+  }
 .bodyContainer{
-    height: 100%;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
-    background-color: white;
+    bottom: 0;
+    right: 0;
+
+    background-image: url("../resources/homepage.jpg");
+    background-size: cover;
 }
 img.inicio {
     width: 400px;
@@ -20,30 +32,55 @@ img.logo{
     margin-bottom: 20px;
 
 }
+
+
 .pictureContainer{
     
     display: inline-block;
-    /* background-color: cadetblue; */
 }
 .textContainer{
 margin-bottom: 20px;
 margin-right: 100px;
-font-size: 20px;
+
 }
-.logoTextButtonContainer{
+.textContainer h2{
+  
+    font-family: 'Neutrif Pro';
+    font-style: normal;
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.966) ;
+
+    text-align: justify;
+    }
+.logoTextButtonContainer {
+    position: relative;
     align-content: center;
     align-items: center;
-    height: 100%;
-    width: 50%;
+    height: auto;
+    width: 600px;
     display: inline-block;
     margin-left: 150px;
+ 
+    word-wrap: break-word;
+    
 
     /* background-color: darkcyan; */
 }
+.logoTextButtonContainer h1{
+    font-family: 'Neutrif Pro';
+    font-style: normal;
+    font-size: 70px;
+    line-height: 1;
+    font-weight: 0;
+    color: white ;
+    
 
+}
 
 .buttonStart{
-    background-color: #3e05c4;
+    background-color: #04f1e5bd;
     border-radius: 30px;
     border: transparent;
     height: 30%;
