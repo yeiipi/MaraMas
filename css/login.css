@@ -47,7 +47,8 @@ body {
   background-size: 100% 100%;
   height: 100%;
   width: 50%;
-  background-image: url("../resources/Login.jpg");
+  background-color: #00a6e7;
+  ;
   float: left;
 }
 .center_box {
@@ -86,7 +87,7 @@ body {
   margin: 10px;
   padding-top: 40px;
   margin-bottom: 40px;
-  color: #00487d
+  color: #00a6e7
   ;
 
   font-family: 'Neutrif Pro';
@@ -142,14 +143,14 @@ form .text_field {
   left: 0;
   width: 0;
   height: 2px;
-  background: #00487d;
+  background: #00a6e7;
   transition: 0.5s;
 }
 
 .text_field input:focus ~ label,
 .text_field input:valid ~ label {
   top: -5px;
-  color: #00487d
+  color: #00a6e7
   ;
 }
 
@@ -161,7 +162,7 @@ form .text_field {
 .pass_forgot {
   text-align: center;
   margin: -5px 0 20px 5px;
-  color: #00487d;
+  color: #00a6e7;
   cursor: pointer;
 }
 
@@ -174,7 +175,7 @@ input[type="submit"] {
   float: right;
   height: 50px;
   border: 1px solid;
-  background: #00487d;
+  background: #04f1e5bd;
   border-radius: 25px;
   font-size: 16px;
   color: white;
@@ -185,8 +186,11 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  border-color: gray;
+  border-color: #04f1e5bd;
   transition: 0.5s;
+  background-color: white;
+
+color: #04f1e5bd;
 }
 
 @media (max-width: 768px){
