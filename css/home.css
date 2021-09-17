@@ -1,105 +1,117 @@
 @font-face {
-    font-family: 'Neutrif Pro';
-    src: url('../resources/Fonts/NeutrifPro-Light.eot');
-    src: url('../resources/Fonts/NeutrifPro-Bold'),
-        url('../resources/Fonts/NeutrifPro-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../resources/Fonts/NeutrifPro-Bold.woff2') format('woff2'),
-        url('../resources/Fonts/NeutrifPro-Bold.woff') format('woff'),
-        url('../resources/Fonts/NeutrifPro-Bold.ttf') format('truetype');
-    font-weight: 0;
-    font-style: normal;
-  }
-.bodyContainer{
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  font-family: "Neutrif Pro";
+  src: url("../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../resources/Fonts/NeutrifPro-Bold"),
+    url("../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
+  font-weight: 0;
+  font-style: normal;
+}
+.bodyContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
-    background-image: url("../resources/homepage.jpg");
-    background-size: cover;
+  background-image: url("../resources/homepage.jpg");
+  background-size: cover;
 }
 img.inicio {
-    width: 400px;
-    height: 300px;
-    padding-top: 150px ;
-    padding-left: 100px;
-  }
-img.logo{
-
-    width: 50%;
-    height: 50%;
-    margin-bottom: 20px;
-
+  width: 400px;
+  height: 300px;
+  margin-top: 150px;
+  margin-left: 100px;
+}
+img.logo {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 20px;
 }
 
-
-.pictureContainer{
-    
-    display: inline-block;
+.pictureContainer {
+  display: inline-block;
 }
-.textContainer{
-margin-bottom: 20px;
-margin-right: 100px;
-
+.textContainer {
+  margin-bottom: 20px;
+  margin-right: 100px;
 }
-.textContainer h2{
-  
-    font-family: 'Neutrif Pro';
-    font-style: normal;
-    font-size: 22px;
-    line-height: 1.2;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.966) ;
+.textContainer h2 {
+  font-family: "Neutrif Pro";
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.966);
 
-    text-align: justify;
-    }
+  text-align: justify;
+}
 .logoTextButtonContainer {
-    position: relative;
-    align-content: center;
+  padding-top: 150px;
+  position: relative;
+  align-content: center;
+  align-items: center;
+  height: auto;
+  width: 600px;
+  display: inline-block;
+  float: right;
+
+  word-wrap: break-word;
+
+  /* background-color: darkcyan; */
+}
+.logoTextButtonContainer h1 {
+  font-family: "Neutrif Pro";
+  font-style: normal;
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 0;
+  color: white;
+}
+
+.buttonStart {
+  background-color: #04f1e5bd;
+  border-radius: 30px;
+  border: transparent;
+  height: 30%;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  width: 40%;
+  margin-left: 120px;
+  font-size: large;
+  font-size: large;
+  font-style: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+.buttonStart:hover {
+  background-color: white;
+  transition: 0.5s;
+  color: #04f1e5bd;
+}
+
+@media (max-width: 700px) {
+  .pictureContainer {
+    display: none;
+  }
+
+  .logoTextButtonContainer {
+    width: 90%;
+    align-self: center;
     align-items: center;
-    height: auto;
-    width: 600px;
-    display: inline-block;
-    margin-left: 150px;
- 
-    word-wrap: break-word;
-    
-
-    /* background-color: darkcyan; */
-}
-.logoTextButtonContainer h1{
-    font-family: 'Neutrif Pro';
-    font-style: normal;
-    font-size: 70px;
-    line-height: 1;
-    font-weight: 0;
-    color: white ;
-    
-
-}
-
-.buttonStart{
-    background-color: #04f1e5bd;
-    border-radius: 30px;
-    border: transparent;
-    height: 30%;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 10px;
-    width: 40%;
-    margin-left: 120px;
-    font-size: large;
-    font-size: large;
-font-style: normal;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-color: white;
-}
-.buttonStart:hover{
-background-color: white;
-transition: 0.5s;
-color: #04f1e5bd;
-
-
+    justify-content: center;
+    padding-top: 20px;
+  }
+  .logoTextButtonContainer h1 {
+    font-size: 60px;
+  }
+  .buttonStart {
+    margin-left: 100px;
+  }
 }
