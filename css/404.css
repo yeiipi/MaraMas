@@ -80,3 +80,11 @@ body {
   width: auto;
   max-width: 500px;
 }
+@media (max-width: 1250px) {
+  .container{
+    justify-content: center;
+  }
+  .image {
+    display: none;
+  }
+}

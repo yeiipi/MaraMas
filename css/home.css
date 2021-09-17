@@ -57,7 +57,7 @@ img.logo {
   height: auto;
   width: 600px;
   display: inline-block;
-  float: right;
+margin-left: 150px;
 
   word-wrap: break-word;
 
