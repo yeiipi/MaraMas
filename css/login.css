@@ -1,17 +1,19 @@
 @font-face {
-  font-family: 'Neutrif Pro';
-  src: url('../resources/Fonts/NeutrifPro-Light.eot');
-  src: url('../resources/Fonts/NeutrifPro-Bold'),
-      url('../resources/Fonts/NeutrifPro-Bold.eot?#iefix') format('embedded-opentype'),
-      url('../resources/Fonts/NeutrifPro-Bold.woff2') format('woff2'),
-      url('../resources/Fonts/NeutrifPro-Bold.woff') format('woff'),
-      url('../resources/Fonts/NeutrifPro-Bold.ttf') format('truetype');
+  font-family: "Neutrif Pro";
+  src: url("../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../resources/Fonts/NeutrifPro-Bold"),
+    url("../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 .top_left_logo {
-  width: 400px;
+  width: auto;
+  max-width: 400px;
   padding-top: 150px;
   padding-left: 150px;
 }
@@ -21,9 +23,7 @@ body {
   padding: 0;
   background: white;
   font-family: "Montserrat", sans-serif;
-
 }
-
 
 .fullscreen {
   position: fixed;
@@ -31,9 +31,8 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
- 
-  background:white;
-  
+
+  background: white;
 }
 .back_right {
   height: 100%;
@@ -47,11 +46,15 @@ body {
   background-size: 100% 100%;
   height: 100%;
   width: 50%;
-  background-image: linear-gradient(135deg, #277bab 20%, #00acee 60%, #00e0ff 100%);
+  background-image: linear-gradient(
+    135deg,
+    #277bab 20%,
+    #00acee 60%,
+    #00e0ff 100%
+  );
   float: left;
 }
 .center_box {
- 
   position: relative;
   top: 50%;
   left: 50%;
@@ -60,8 +63,7 @@ body {
   max-width: 550px;
   height: 100%;
   max-height: 500px;
-  background-color: white
-  ;
+  background-color: white;
   border-radius: 10px;
 
   -moz-transform: scale(0.5);
@@ -79,19 +81,16 @@ body {
   font-weight: 700;
   font-style: normal;
   font-size: 25px;
- 
 }
 .center_box h1 {
   text-align: center;
   margin: 10px;
   padding-top: 40px;
   margin-bottom: 40px;
-  color: #00a6e7
-  ;
+  color: #00a6e7;
 
-  font-family: 'Neutrif Pro';
+  font-family: "Neutrif Pro";
   font-size: 70px;
- 
 }
 
 .center_box h2 {
@@ -149,8 +148,7 @@ form .text_field {
 .text_field input:focus ~ label,
 .text_field input:valid ~ label {
   top: -5px;
-  color: #00a6e7
-  ;
+  color: #00a6e7;
 }
 
 .text_field input:focus ~ span::before,
@@ -189,43 +187,70 @@ input[type="submit"]:hover {
   transition: 0.5s;
   background-color: white;
 
-color: #04f1e5bd;
+  color: #04f1e5bd;
 }
 
-@media (max-width: 768px){
-  .center_box{
-    width: 75%; 
+@media (max-width: 1200px) {
+  .top_left_logo {
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .top_left_logo {
+    padding-left: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .top_left_logo {
+    max-width: 350px;
+    padding-left: 60px;
+  }
+}
+
+@media (max-width: 800px) {
+  .top_left_logo {
+    max-width: 300px;
+  }
+
+  .back_img h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .center_box {
+    width: 75%;
   }
   .back_right {
-    justify-content: center; 
+    justify-content: center;
 
     width: 100%;
   }
-  .back_img{
+  .back_img {
     width: 0px;
     height: auto;
     display: none;
   }
 }
 
-@media (max-width: 480px){
-  .center_box{
+@media (max-width: 480px) {
+  .center_box {
     width: 90%;
     align-self: center;
-    
   }
   .back_right {
-    justify-content: center; 
-  
+    justify-content: center;
+
     width: 100%;
   }
-  .back_img{
+  .back_img {
     width: 0px;
     height: auto;
   }
 
-
-  body{
+  body {
     background: #f5f5f5;
   }
 }
