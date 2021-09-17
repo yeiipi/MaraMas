@@ -39,6 +39,7 @@ body {
   margin-left: 7%;
   float: left;
   display: block;
+
 }
 
 .container h1 {
@@ -82,8 +83,15 @@ body {
 }
 @media (max-width: 1250px) {
   .container{
-    justify-content: center;
+    align-self: center;
+    padding: auto;
+    margin: auto;
+    float: none;
   }
+  .bodyContainer{
+    justify-content: center;
+    padding: auto;
+    }
   .image {
     display: none;
   }
