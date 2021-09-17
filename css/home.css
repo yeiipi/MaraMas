@@ -10,6 +10,15 @@
   font-weight: 0;
   font-style: normal;
 }
+.Mara{
+  display: flex;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.Mara img{
+  max-width: 100px;
+  height: auto;
+}
 .bodyContainer {
   position: fixed;
   top: 0;
@@ -19,11 +28,12 @@
 
   background-image: url("../resources/homepage.jpg");
   background-size: cover;
+  background-attachment: scroll;
 }
 img.inicio {
   width: 400px;
   height: 300px;
-  margin-top: 150px;
+  margin-top: 100px;
   margin-left: 100px;
 }
 img.logo {
@@ -50,12 +60,13 @@ img.logo {
   text-align: justify;
 }
 .logoTextButtonContainer {
-  padding-top: 150px;
+
   position: relative;
   align-content: center;
   align-items: center;
   height: auto;
-  width: 600px;
+  max-width: 600px;
+  width: auto;
   display: inline-block;
 margin-left: 150px;
 
@@ -96,22 +107,49 @@ margin-left: 150px;
   color: #04f1e5bd;
 }
 
-@media (max-width: 700px) {
-  .pictureContainer {
-    display: none;
-  }
+@media (max-width: 1260px) {
+.pictureContainer{
+  display: none;
+}
+.bodyContainer {
 
-  .logoTextButtonContainer {
-    width: 90%;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-  }
-  .logoTextButtonContainer h1 {
-    font-size: 60px;
-  }
-  .buttonStart {
-    margin-left: 100px;
-  }
+background-image: linear-gradient(
+  135deg,
+  #277bab 20%,
+  #00acee 60%,
+  #00e0ff 100%
+);
+overflow: auto;
+
+}
+.logoTextButtonContainer{
+
+margin: auto;
+padding-top: 25px;
+display:inherit
+}
+.logoTextButtonContainer h1 {
+  font-size: 60px;
+text-align: center;}
+.logoTextButtonContainer h2 {
+  text-align: center;
+margin: auto;}
+.textContainer{
+  margin: auto;
+}
+.buttonStart{
+margin: auto;
+margin-top: 80px;
+display: inherit;
+height: 60px;
+}
+.Mara{
+display: block;
+padding-top: 20px;
+padding-left: 20px;
+}
+.Mara img{
+  max-width: 100px;
+  height: auto;
+}
 }
