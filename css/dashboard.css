@@ -36,15 +36,31 @@ li,
 a {
   font-family: "Neutrif Pro";
   font-style: normal;
-  font-size: 16px;
+  font-size: 22px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 700;
   color: rgba(255, 255, 255, 0.966);
 }
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 30px 10%;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+  color: #04f1e5bd;
 }
