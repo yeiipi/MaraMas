@@ -9,52 +9,46 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-
 </head>
 <body>
-    <div class="bodyContainer">
+    <div class="sidebar">
+        <div class="Mara">
+            <img src="../resources/app_logo_oscuro.png">
+        </div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="" class="active">
+                        <span class="las la-chart-area"></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="las la-truck"></span>
+                        <span>Driver</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="las la-box"></span>
+                        <span>Dispatcher</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="content">
         <header>
-            <div class="Mara">
-                <img src="../resources/app_logo_oscuro.png">
+            <h2>Dashboard</h2>
+            <div class="user">
+                <img src="../resources/profile_pic.jpg" width='40px' height="40px" alt="">
+                <div>
+                    <h4>Jane Doe</h4>
+                    <small>Administrator</small>
+                </div>
             </div>
-            <nav>
-                <ul class="nav_links">
-                    <li>
-                        <a href="" class="active">
-                            <span class="las la-chart-area"></span>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-truck"></span>
-                            <span>Driver</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-box"></span>
-                            <span>Dispatcher</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <nav>
-                <ul class="nav_links">
-                    <li>
-                        <a href="" class="active">
-                            <span class="las la-user"></span>
-                            <span>Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="las la-sign-out-alt"></span>
-                            <span>Sign Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
         </header>
     </div>
 </body>
