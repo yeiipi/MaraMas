@@ -156,55 +156,30 @@ main {
   color: #04f1e5bd;
 }
 
-/*
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-size: cover;
-  background-attachment: scroll;
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+  height: 345px;
 }
 
-li,
-a {
-  font-family: "Neutrif Pro";
-  font-style: normal;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.966);
-  text-decoration: none;
-}
-
-header {
+.bar_chart {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  z-index: 99;
-  background-image: linear-gradient(
-    135deg,
-    #277bab 20%,
-    #00acee 60%,
-    #00e0ff 100%
-  );
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.nav_links {
-  list-style: none;
+.bar_chart span {
+  color: grey;
 }
 
-.nav_links li {
-  display: inline-block;
-  padding: 0px 20px;
+.bar_chart span:first-child {
+  font-size: 2rem;
 }
 
-.nav_links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
+.bar_chart div:last-child span {
   color: #04f1e5bd;
 }
-*/
