@@ -18,6 +18,13 @@ const data3 = {
     datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0c1c5044", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:1, cutout: '80%', borderRadius: 10 }],
 };
 
+//Setup data line chart
+const data4 = {
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 
+    datasets: [{label: "Income", data: [50,23,22,234,12,76,203,53,77,10,123,199], backgroundColor: ['#a6f8b1'], borderColor: ['#61ec73'], borderWidth:1},
+    {label: "Income", data: [5,26,12,254,22,16,290,57,27,11,213,19], backgroundColor: ['#ff8f8f'],borderColor: ['#f75959'], borderWidth:1}],
+};
+
 //------------------------------------------
 
 //counter plugin
@@ -75,11 +82,27 @@ const config3 = {
     plugins: [counter]
   };
 
+//Configurations doughnut chart
+const config4 = {
+type: 'line',
+   data: data4,
+   options: {
+     responsive: true,
+     maintainAspectRatio: false,
+     plugins: {
+       legend: {
+         position: 'top',
+       }
+     }
+   },
+ };
+
 //------------------------------------------
 
 //Render bar chart
 const week_ship = new Chart(document.getElementById("week_ship"), config);
 const prod_ship = new Chart(document.getElementById("prod_ship"), config2);
 const progress_ship = new Chart(document.getElementById("progress_ship"), config3);
+const mon_ship = new Chart(document.getElementById("mon_ship"), config4);
 
 
