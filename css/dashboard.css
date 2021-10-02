@@ -158,7 +158,7 @@ main {
 
 .charts {
   display: grid;
-  grid-template-columns: 515px 250px 300px;
+  grid-template-columns: 507px 243px 243px;
   gap: 20px;
   margin-top: 20px;
   height: 285px;
@@ -211,6 +211,32 @@ main {
 }
 
 .data_vis_2 {
+  width: 225px;
+  height: 225px;
+  padding-top: 15px;
+}
+
+.progress_chart {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.progress_chart span {
+  color: grey;
+}
+
+.progress_chart span:first-child {
+  font-size: 2rem;
+}
+
+.progress_chart div:last-child span {
+  color: grey;
+}
+
+.data_vis_3 {
   width: 225px;
   height: 225px;
   padding-top: 15px;
