@@ -36,7 +36,7 @@ img {
 }
 
 .sidebar {
-  width: 345px;
+  width: 200px;
   position: fixed;
   left: 0;
   top: 0;
@@ -82,7 +82,7 @@ img {
 }
 
 .content {
-  margin-left: 345px;
+  margin-left: 200px;
 }
 
 header {
@@ -91,8 +91,8 @@ header {
   padding: 10px 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  left: 345px;
-  width: calc(100% - 345px);
+  left: 200px;
+  width: calc(100% - 200px);
   top: 0;
   z-index: 100;
 }
