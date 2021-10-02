@@ -66,6 +66,10 @@ const config2 = {
       plugins: {
         legend: {
           position: 'bottom',
+          labels: {
+            usePointStyle: true,
+            boxWidth: 6
+          }
         },
       }
     },
@@ -114,6 +118,10 @@ const config5 = {
          plugins: {
            legend: {
              position: 'top',
+             labels: {
+                usePointStyle: true,
+                boxWidth: 6
+              }
            }
          }
        },
