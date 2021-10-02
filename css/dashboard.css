@@ -158,8 +158,8 @@ main {
 
 .charts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 515px 250px 300px;
+  gap: 20px;
   margin-top: 20px;
   height: 285px;
 }
@@ -181,11 +181,37 @@ main {
 }
 
 .bar_chart div:last-child span {
-  color: #0077b6;
+  color: grey;
 }
 
-.data_vis {
-  width: 390px;
+.data_vis_1 {
+  width: 450px;
   height: auto;
+  padding-top: 15px;
+}
+
+.pie_chart {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.pie_chart span {
+  color: grey;
+}
+
+.pie_chart span:first-child {
+  font-size: 2rem;
+}
+
+.pie_chart div:last-child span {
+  color: grey;
+}
+
+.data_vis_2 {
+  width: 225px;
+  height: 225px;
   padding-top: 15px;
 }
