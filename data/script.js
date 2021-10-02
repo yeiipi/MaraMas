@@ -30,7 +30,7 @@ const counter = {
         ctx.font = options.fontSize + 'px ' + options.fontFamily;
         ctx.textAlign = 'centre';
         ctx.fillStyle = options.fontColor;
-        ctx.fillText(datapoints[0] + "%", width/2.5, (height/2) + options.fontSize * 0.34)
+        ctx.fillText(datapoints[0] + "%", width/2.7, (height/2) + options.fontSize * 0.34)
 
     }
 };
