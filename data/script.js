@@ -22,7 +22,7 @@ const data3 = {
 const data4 = {
     labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 
     datasets: [{label: "Income", data: [50,23,22,234,12,76,203,53,77,10,123,199], backgroundColor: ['#a6f8b1'], borderColor: ['#61ec73'], borderWidth:1},
-    {label: "Income", data: [5,26,12,254,22,16,290,57,27,11,213,19], backgroundColor: ['#ff8f8f'],borderColor: ['#f75959'], borderWidth:1}],
+    {label: "Expenses", data: [5,26,12,254,22,16,290,57,27,11,213,19], backgroundColor: ['#ff8f8f'],borderColor: ['#f75959'], borderWidth:1}],
 };
 
 //Setup data dough chart
