@@ -95,6 +95,29 @@ img {
   list-style: none;
 }
 
+.sidebar ul li .tooltip {
+  position: absolute;
+  left: 122px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background: white;
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  opacity: 1;
+  top: 50%;
+}
+
 .sidebar ul li a {
   color: white;
   display: flex;
