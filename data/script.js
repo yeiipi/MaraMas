@@ -117,7 +117,7 @@ const config5 = {
          maintainAspectRatio: false,
          plugins: {
            legend: {
-             position: 'top',
+             position: 'bottom',
              labels: {
                 usePointStyle: true,
                 boxWidth: 6
