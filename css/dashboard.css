@@ -76,8 +76,16 @@ img {
 }
 
 .menu a span:first-child {
-  font-size: 16px;
+  font-size: 20px;
   padding-right: 10px;
+}
+
+#nav_toggle:checked + .sidebar {
+  width: 120px;
+}
+
+#nav_toggle:checked + .sidebar li a span:last-child {
+  display: none;
 }
 
 .content {
@@ -95,6 +103,11 @@ header {
   width: calc(100% - 200px);
   top: 0;
   z-index: 100;
+}
+
+#nav_toggle {
+  display: none;
+  cursor: pointer;
 }
 
 header h2 {
