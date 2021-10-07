@@ -17,7 +17,7 @@
         <div class="logo_content">
             <div class="logo">
                 <i class="las la-plus-circle"></i>
-                <div class="logo_name">Mara Mas</div>
+                <div class="logo_name">MaraMas</div>
             </div>
             <i class="las la-bars" id="btn"></i>
         </div>
@@ -149,5 +149,19 @@
         </main>
     </div>
 </body>
+
+<script>
+    let btn = document.querySelector("#btn");
+    let sidebar = document.querySelector(".sidebar");
+
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+
+</script>
+
+
+
+
 <script src="../data/script.js"></script>
 </html>
