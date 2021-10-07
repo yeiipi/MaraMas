@@ -1,34 +1,34 @@
 //Setup data bar chart
 const data = {
     labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], 
-    datasets: [{label: "Shipments", data: [100,69,77,123,35], backgroundColor: ["#4ADEDE", "#797ef6"], borderColor:["#4ADEDE", "#797ef6"], borderWidth:1}],
+    datasets: [{label: "Shipments", data: [100,69,77,123,35], backgroundColor: ["#90e0ef"], borderColor:["#48cae4"], borderWidth:1}],
 };
 
 //Setup data pie chart
 const data2 = {
     labels: ["Electronics", "Clothes", "Food"], 
-    datasets: [{label: "Number of products", data: [50,23,22], backgroundColor: ["#797ef6", "#74f0ac", "#4ADEDE"], borderWidth:1}],
+    datasets: [{label: "Number of products", data: [50,23,22], backgroundColor: ["#0077b6", "#00b4d8", "#4ADEDE"], borderWidth:1}],
 };
 
 //Setup data progress chart
-const dp = 90
+const dp = 33
 const datapoints = [dp,(100 - dp)]
 const data3 = {
     labels: ["Electronics", "Clothes", "Food"], 
-    datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#74f0ac", "transparent"], borderColor:["#74f0ac", "transparent"], borderWidth:1, cutout: '80%', borderRadius: 10 }],
+    datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0077b6", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:1, cutout: '80%', borderRadius: 10 }],
 };
 
 //Setup data line chart
 const data4 = {
     labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 
-    datasets: [{label: "Income", data: [50,23,22,234,12,76,203,53,77,10,123,199], backgroundColor: ['#a6f8b1'], borderColor: ['#61ec73'], borderWidth:1},
-    {label: "Expenses", data: [5,26,12,254,22,16,290,57,27,11,213,19], backgroundColor: ['#ff8f8f'],borderColor: ['#f75959'], borderWidth:1}],
+    datasets: [{label: "Income", data: [50,23,22,234,12,76,203,53,77,10,123,199], backgroundColor: ['#00b4d8'], borderColor: ['#00b4d8'], borderWidth:1},
+    {label: "Expenses", data: [5,26,12,254,22,16,290,57,27,11,213,19], backgroundColor: ['#03045e'],borderColor: ['#03045e'], borderWidth:1}],
 };
 
 //Setup data dough chart
 const data5 = {
     labels: ["On Time", "Delayed"], 
-    datasets: [{label: "ETA", data: [1372,197], backgroundColor: ['#797ef6', "#4ADEDE"], borderWidth:1}],
+    datasets: [{label: "ETA", data: [1372,197], backgroundColor: ['#0077b6', "#4ADEDE"], borderWidth:1}],
 };
 
 
