@@ -89,7 +89,7 @@ img {
 .sidebar ul li {
   position: relative;
   height: 50px;
-  width: 92%;
+  width: 75%;
   margin: 0 5px;
   padding-left: 10px;
   list-style: none;
@@ -196,7 +196,7 @@ header label span {
 /*-----------------------------------------*/
 
 main {
-  margin-top: 38px;
+  margin-top: 55px;
   font-size: 12px;
   padding: 20px 15px;
   background-color: #f1f5f9;
