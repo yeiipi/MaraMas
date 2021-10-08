@@ -114,7 +114,7 @@ img {
   position: absolute;
   left: 122px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-43%, -50%);
   border-radius: 6px;
   height: 35px;
   width: 122px;
@@ -145,6 +145,7 @@ img {
   text-decoration: none;
   transition: all 0.4s ease;
   border-radius: 12px;
+  white-space: nowrap;
 }
 
 .sidebar ul li a:hover {
@@ -188,6 +189,14 @@ img {
 .profile_content .profile .profile_details {
   display: flex;
   align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sidebar.active .profile .profile_details {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .profile .profile_details img {
@@ -212,16 +221,23 @@ img {
 
 .profile #log_out {
   position: absolute;
-  left: 88%;
+  left: 50%;
   bottom: 5px;
   transform: translateX(-50%);
   min-width: 50px;
   line-height: 50px;
   font-size: 20px;
   border-radius: 12px;
+  text-align: center;
 }
+
+.sidebar.active .profile #log_out {
+  left: 88%;
+}
+
 .content {
-  margin-left: 200px;
+  margin-left: 80px;
+  transition: all 0.5s ease;
 }
 
 header {
@@ -428,3 +444,9 @@ main {
   height: 225px;
   padding-top: 15px;
 }
+
+.sidebar.active ~ .content {
+  margin-left: 200px;
+}
+
+/* Cuando esta activo esta en forma grande!!*/
