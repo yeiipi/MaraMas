@@ -247,10 +247,11 @@ header {
   padding: 10px 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  left: 200px;
-  width: calc(100% - 200px);
+  left: 78px;
+  width: calc(100% - 78px);
   top: 0;
   z-index: 100;
+  transition: all 0.5s ease;
 }
 
 header h2 {
@@ -447,6 +448,19 @@ main {
 
 .sidebar.active ~ .content {
   margin-left: 200px;
+}
+
+.sidebar.active ~ .content header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  left: 200px;
+  width: calc(100% - 200px);
+  top: 0;
+  z-index: 100;
 }
 
 /* Cuando esta activo esta en forma grande!!*/
