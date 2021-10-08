@@ -36,7 +36,7 @@ img {
 }
 
 .sidebar {
-  width: 78px;
+  width: 200px;
   position: fixed;
   left: 0;
   top: 0;
@@ -48,11 +48,6 @@ img {
     #00e0ff 100%
   );
   scroll-margin-inline: 100;
-  transition: all 0.5s ease;
-}
-
-.sidebar.active {
-  width: 200px;
 }
 
 .sidebar .logo_content .logo {
@@ -62,12 +57,6 @@ img {
   width: 100%;
   align-items: center;
   padding-top: 4px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sidebar.active .logo_content .logo {
-  opacity: 1;
 }
 
 .logo_content .logo i {
@@ -84,17 +73,13 @@ img {
 .sidebar #btn {
   position: absolute;
   color: white;
-  left: 50%;
+  left: 90%;
   top: 15px;
   font-size: 20px;
   height: 50px;
   width: 50px;
   text-align: center;
   transform: translateX(-50%);
-}
-
-.sidebar.active #btn {
-  left: 90%;
 }
 
 .sidebar ul {
@@ -104,38 +89,10 @@ img {
 .sidebar ul li {
   position: relative;
   height: 50px;
-  width: 80%;
+  width: 92%;
   margin: 0 5px;
   padding-left: 10px;
   list-style: none;
-}
-
-.sidebar ul li .tooltip {
-  position: absolute;
-  left: 122px;
-  top: 50%;
-  transform: translate(-43%, -50%);
-  border-radius: 6px;
-  height: 35px;
-  width: 122px;
-  background: white;
-  line-height: 35px;
-  text-align: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  transition: 0s;
-  opacity: 0;
-  pointer-events: none;
-  display: block;
-}
-
-.sidebar.active ul li .tooltip {
-  display: none;
-}
-
-.sidebar ul li:hover .tooltip {
-  transition: all 0.5s ease;
-  opacity: 1;
-  top: 50%;
 }
 
 .sidebar ul li a {
@@ -145,7 +102,6 @@ img {
   text-decoration: none;
   transition: all 0.4s ease;
   border-radius: 12px;
-  white-space: nowrap;
 }
 
 .sidebar ul li a:hover {
@@ -153,22 +109,12 @@ img {
   background: white;
 }
 
-.sidebar ul li i {
+.sidebar ul li a i {
   height: 50px;
   min-width: 50px;
   border-radius: 12px;
   line-height: 50px;
   text-align: center;
-}
-
-.sidebar .links_name {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.sidebar.active .links_name {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .sidebar .profile_content {
@@ -189,14 +135,6 @@ img {
 .profile_content .profile .profile_details {
   display: flex;
   align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-.sidebar.active .profile .profile_details {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .profile .profile_details img {
@@ -221,23 +159,16 @@ img {
 
 .profile #log_out {
   position: absolute;
-  left: 50%;
+  left: 88%;
   bottom: 5px;
   transform: translateX(-50%);
   min-width: 50px;
   line-height: 50px;
   font-size: 20px;
   border-radius: 12px;
-  text-align: center;
 }
-
-.sidebar.active .profile #log_out {
-  left: 88%;
-}
-
 .content {
-  margin-left: 80px;
-  transition: all 0.5s ease;
+  margin-left: 200px;
 }
 
 header {
@@ -247,11 +178,10 @@ header {
   padding: 10px 15px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   position: fixed;
-  left: 78px;
-  width: calc(100% - 78px);
+  left: 200px;
+  width: calc(100% - 200px);
   top: 0;
   z-index: 100;
-  transition: all 0.5s ease;
 }
 
 header h2 {
@@ -266,7 +196,7 @@ header label span {
 /*-----------------------------------------*/
 
 main {
-  margin-top: 35px;
+  margin-top: 60px;
   font-size: 12px;
   padding: 20px 15px;
   background-color: #f1f5f9;
@@ -445,22 +375,3 @@ main {
   height: 225px;
   padding-top: 15px;
 }
-
-.sidebar.active ~ .content {
-  margin-left: 200px;
-}
-
-.sidebar.active ~ .content header {
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 15px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  left: 200px;
-  width: calc(100% - 200px);
-  top: 0;
-  z-index: 100;
-}
-
-/* Cuando esta activo esta en forma grande!!*/
