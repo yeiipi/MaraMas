@@ -14,7 +14,6 @@ const data2 = {
 const dp = 33
 const datapoints = [dp,(100 - dp)]
 const data3 = {
-    labels: ["Electronics", "Clothes", "Food"], 
     datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0077b6", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:1, cutout: '80%', borderRadius: 10 }],
 };
 
@@ -36,8 +35,8 @@ const data5 = {
 const eff = 90
 const effdata = [(eff*2),(200 - (eff*2))]
 const data6 = {
-  labels : ["Red","Blue"],
-  datasets: [{label: "Gauge", data : effdata, backgroundColor: ["#4ADEDE", '#0077b6'], borderRadius: 5, borderWidth:5, cutout: '70%'}]
+  labels: ["Efficiency", "Inefficiency"],
+  datasets: [{label: "Gauge", data : effdata, backgroundColor: ["#4ADEDE", '#0077b6'], borderRadius: 5, borderWidth:3, cutout: '70%'}]
 };
 
 //------------------------------------------
