@@ -193,8 +193,6 @@ header label span {
   padding-right: 10px;
 }
 
-/*--------------------------------------------------------------------------------------------------------*/
-
 main {
   margin-top: 55px;
   font-size: 12px;
@@ -202,3 +200,39 @@ main {
   background-color: #f1f5f9;
   min-height: calc(100vh - 60px);
 }
+
+/*--------------------------------------------------------------------------------------------------------*/
+
+.map_vis {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  height: 285px;
+  margin-bottom: 10px;
+}
+
+.map {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.map span {
+  color: grey;
+}
+
+.map span:first-child {
+  font-size: 2rem;
+}
+
+.map div:last-child span {
+  color: grey;
+}
+
+.tracking_map {
+  padding-top: 15px;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
