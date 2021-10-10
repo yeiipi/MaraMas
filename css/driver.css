@@ -272,3 +272,85 @@ main {
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
+
+.card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fleet_list span {
+  color: grey;
+}
+
+.card_header {
+  padding-bottom: 10px;
+}
+
+.card_body {
+  padding-top: 5px;
+}
+
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_header button {
+  background: #0077b6;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 5px;
+  border: 1px solid #0077b6;
+}
+.card_header span {
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+thead td {
+  font-weight: 700;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  color: #222;
+}
+
+td .status {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+tr td:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.status.purple {
+  background: #b5179e;
+}
+
+.status.green {
+  background: #4adede;
+}
+
+.table_responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/*--------------------------------------------------------------------------------------------------------*/
