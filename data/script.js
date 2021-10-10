@@ -39,6 +39,12 @@ const data6 = {
   datasets: [{label: "Gauge", data : effdata, backgroundColor: ["#4ADEDE", '#0077b6'], borderRadius: 5, borderWidth:3, cutout: '70%'}]
 };
 
+//Setup data horizontal bar chart
+const data7 = {
+  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], 
+  datasets: [{label: "Shipments", data: [100,69,77,123,35], backgroundColor: ["#90e0ef"], borderColor:["#48cae4"], borderWidth:1}],
+};
+
 //------------------------------------------
 
 //counter plugin
@@ -168,16 +174,22 @@ const config6 = {
     plugins: [counter2]
 }; 
 
+//Configurations horizontal bar chart
+const config7 = {
+  type: "bar",
+  data: data7,
+};
 
 //------------------------------------------
 
 //Render bar chart
 const meter_info = new Chart(document.getElementById("meter_info"), config6);
-
 const week_ship = new Chart(document.getElementById("week_ship"), config);
 const prod_ship = new Chart(document.getElementById("prod_ship"), config2);
 const progress_ship = new Chart(document.getElementById("progress_ship"), config3);
 const mon_ship = new Chart(document.getElementById("mon_ship"), config4);
 const dough_ship = new Chart(document.getElementById("dough_ship"), config5);
+
+
 
 
