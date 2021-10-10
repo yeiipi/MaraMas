@@ -1,22 +1,21 @@
 //Setup data horizontal bar chart
 const data7 = {
-  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], 
-  datasets: [{label: "Shipments", data: [100,69,77,123,35], backgroundColor: ["#90e0ef"], borderColor:["#48cae4"], borderWidth:1}],
+  labels: ["Trucks Loaded", "Inventory Review", "Package Quality Check"], 
+  datasets: [{label: "Progress", data: [90,69,77], backgroundColor: ["#0077b6"], borderColor:["#0077b6"], borderWidth:1}],
 };
 
-//Setup data gauge meter
-const eff = 90
-const effdata = [(eff*2),(200 - (eff*2))]
-const data6 = {
-  labels: ["Efficiency", "Inefficiency"],
-  datasets: [{label: "Gauge", data : effdata, backgroundColor: ["#4ADEDE", '#0077b6'], borderRadius: 5, borderWidth:3, cutout: '70%'}]
+//Setup data progress chart
+const dp = 33
+const datapoints = [dp,(100 - dp)]
+const data3 = {
+    datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#4ADEDE", "transparent"], borderColor:["#4ADEDE", "transparent"], borderWidth:3, cutout: '80%', borderRadius: 5 }],
 };
 
 //------------------------------------------
 
-//counter plugin 2 (for gauge meter)
-const counter2 = {
-    id: 'counter2',
+//counter plugin
+const counter = {
+    id: 'counter',
     beforeDraw(chart,args,options){
         const {ctx, chartArea: {top, right, bottom, left, width, height}} = chart;
         ctx.save();
@@ -24,41 +23,45 @@ const counter2 = {
         ctx.font = options.fontSize + 'px ' + options.fontFamily;
         ctx.textAlign = 'centre';
         ctx.fillStyle = options.fontColor;
-        ctx.fillText(eff + "%", width/2.7, (height/1.5) + options.fontSize * 0.34)
+        ctx.fillText(datapoints[0] + "%", width/2.7, (height/2) + options.fontSize * 0.34)
+
     }
-  };  
+};
 
 //------------------------------------------
-//Configurations gauge meter
-const config6 = {
-    type:"doughnut",
-    data: data6,
+
+//Configurations progress chart
+const config3 = {
+    type: 'doughnut',
+    data: data3,
     options: {
         responsive: true,
-        circumference: 180,
-        rotation : -90,
         plugins: {
           legend: {display: false},
-          counter2: {
-            fontColor: 'black', 
-            fontSize: '25',
-            fontFamily: 'Neutrif Pro'
+          counter: {
+              fontColor: 'black', 
+              fontSize: '25',
+              fontFamily: 'Neutrif Pro'
+          }
         }
-        }
-    },
-    plugins: [counter2]
-}; 
+      },
+    plugins: [counter]
+  };
+
 //Configurations horizontal bar chart
 const config7 = {
   type: "bar",
   data: data7,
+  options: {
+    indexAxis: 'y',
+  }
 };
 
 //------------------------------------------
 
 //Render bar chart
 const effi_graph = new Chart(document.getElementById("effi_graph"), config7);
-const meter_info = new Chart(document.getElementById("meter_info"), config6);
+const progress_ship = new Chart(document.getElementById("progress_ship"), config3);
 
 
 
