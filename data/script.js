@@ -14,7 +14,7 @@ const data2 = {
 const dp = 33
 const datapoints = [dp,(100 - dp)]
 const data3 = {
-    datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0077b6", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:1, cutout: '80%', borderRadius: 10 }],
+    datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0077b6", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:3, cutout: '80%', borderRadius: 5 }],
 };
 
 //Setup data line chart
