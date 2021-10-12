@@ -1,0 +1,47 @@
+INSERT INTO container (container_num, capacity, address)
+VALUES (1, 60, 'Calle 1ra Avenida 2');
+
+INSERT INTO authentication (email, passwd)
+VALUES ('admin@gmail.com', 'SoyAdmin123');
+
+INSERT INTO authentication (email, passwd)
+VALUES ('usuario@gmail.com', 'User0987');
+
+INSERT INTO authentication (email, passwd)
+VALUES ('delivery@gmail.com', 'deli6767');
+
+INSERT INTO authentication (email, passwd)
+VALUES ('dispatcher@gmail.com', 'depscahos32');
+
+INSERT INTO authentication (email, passwd)
+VALUES ('dispatcher2@gmail.com', 'depscahos321');
+
+INSERT INTO administrator (username, address, phone_num, id_auth)
+VALUES ('administrador1', 'Av 3 #67', '3123738211', 2);
+
+INSERT INTO customer (username, address, phone_num, pay_method, id_auth)
+VALUES ('cliente1', 'Calle 3', '1234567890', 'Debito', 3);
+
+INSERT INTO dispatcher (username, address, phone_num, status, id_auth, id_container)
+VALUES ('despachador0', 'La casa', '0987654321', 1, 1, 1);
+
+INSERT INTO vehicle (capacity, license_plate, mechanical_status)
+VALUES (10, 'XCO236', TRUE);
+
+INSERT INTO delivery_person (username, address, phone_num, status, id_auth, id_vehicle)
+VALUES ('repartidor1', 'Av 23', '8637362123', 1, 4, 1);
+
+INSERT INTO package (source_store, weight_box, height_box, width_box, price, 
+					 id_container, id_vehicle, id_delivery)
+VALUES ('La tienda', 10, 15, 3, 14.99, 1, 1, 1);
+
+
+POST http://localhost:3000/customers
+Content-Type: application/json
+{
+    "username": "cliente3",
+    "address": "Calle 55",
+    "phone_num": "8888887890",
+    "pay_method": "Efectivo",
+    "id_auth": 2
+}
