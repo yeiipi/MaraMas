@@ -343,8 +343,12 @@ tr td:last-child {
   background: #b5179e;
 }
 
-.status.green {
+.status.cyan {
   background: #4adede;
+}
+
+.status.green {
+  background: #7ae582;
 }
 
 .table_responsive {
