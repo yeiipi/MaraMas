@@ -1,11 +1,11 @@
 //Setup data horizontal bar chart
 const data7 = {
   labels: ["Trucks Loaded", "Inventory Review", "Package Quality Check"], 
-  datasets: [{label: "Progress", data: [90,69,77], backgroundColor: ["#0077b6"], borderColor:["#0077b6"], borderWidth:1}],
+  datasets: [{label: "Progress", data: [90,69,77], backgroundColor: ["#00b4d8"], borderColor:["#00b4d8"], borderWidth:1}],
 };
 
 //Setup data progress chart
-const dp = 33
+const dp = 88
 const datapoints = [dp,(100 - dp)]
 const data3 = {
     datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#4ADEDE", "transparent"], borderColor:["#4ADEDE", "transparent"], borderWidth:3, cutout: '80%', borderRadius: 5 }],
@@ -54,6 +54,13 @@ const config7 = {
   data: data7,
   options: {
     indexAxis: 'y',
+    plugins: {
+    legend: {display:false},
+    },
+    scales: {
+      x: {grid: {display:false}},
+      y: {grid: {display:false}},
+    }
   }
 };
 
