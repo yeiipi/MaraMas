@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "Neutrif Pro";
+  src: url("../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../resources/Fonts/NeutrifPro-Bold"),
+    url("../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.logo {
+  position: sticky;
+  height: auto;
+  width: 100px;
+  left: 15px;
+  top: 15px;
+}
+
+.fullscreen {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    135deg,
+    #277bab 20%,
+    #00acee 60%,
+    #00e0ff 100%
+  );
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -350px;
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+}
+.card h1 {
+  text-align: center;
+  color: #00a6e7;
+  font-family: "Neutrif Pro";
+  font-size: 30px;
+}
+
+.card form {
+  padding: 0px 120px;
+  box-sizing: border-box;
+}
+
+form .text_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+
+.text_field input {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.text_field label {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-left: -50px;
+  left: 50%;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.text_field span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00a6e7;
+  transition: 0.5s;
+}
+
+.text_field input:focus ~ label,
+.text_field input:valid ~ label {
+  top: -5px;
+  color: #00a6e7;
+}
+
+.text_field input:focus ~ span::before,
+.text_field input:valid ~ span::before {
+  width: 100%;
+}
+
+.pass_forgot {
+  text-align: center;
+  margin: -5px 0 20px 5px;
+  color: #00a6e7;
+  cursor: pointer;
+}
+
+.pass_forgot:hover {
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  position: relative;
+  margin-left: -15%;
+  width: 30%;
+  left: 50%;
+  height: 50px;
+  border: 1px solid;
+  background: #04f1e5bd;
+  border-radius: 25px;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+  border-color: #04f1e5bd;
+  transition: 0.5s;
+  background-color: white;
+
+  color: #04f1e5bd;
+}
