@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT ||4000
 const cors = require ("cors");
 const pool = require("./database");
 
@@ -22,15 +23,23 @@ app.post("/container", async(req,res)=>{  //Revisas si usar async o no
     }})  
 
 // Get all container
-app.get("/container",async(req,res) =>{
-    try{
-        const allContainer = await pool.query("SELECT * FROM container")
-        res.json(allContainer.rows)
-    }catch(err){
-        console.error(err.message)
-    }
-})
+//SANTIAGO´S WORK
+app.set('view engine', 'ejs')
 
+app.get("/", (req,res) =>{
+    res.render("home");
+});
+  
+app.get("/users/login", (req,res) =>{
+    res.render("login");
+});
+
+app.get("/users/dashboard", (req,res) =>{
+    res.render("dashboard", {user: "Sadj"});
+});
+app.use('/public', express.static('public'));
+
+app.use('/resources', express.static('resources'));
 
 
 // get specific container
@@ -76,6 +85,6 @@ app.use("/auth",require("./routes/jwtAuth"));
 
 // Ruta prueba 
 app.use("/prueba",require("./routes/prueba"))
-app.listen(5000, () => {
-    console.log("El servido ha iniciado en puerto 5000");
+app.listen(PORT, () => {
+    console.log('El servido ha iniciado en puerto '+ PORT);
 });

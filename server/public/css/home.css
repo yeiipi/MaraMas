@@ -1,0 +1,157 @@
+@font-face {
+  font-family: "Neutrif Pro";
+  src: url("../../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../../resources/Fonts/NeutrifPro-Bold"),
+    url("../../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
+  font-weight: 0;
+  font-style: normal;
+}
+.Mara{
+  display: flex;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.Mara img{
+  max-width: 100px;
+  height: auto;
+}
+.bodyContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background-image: url("../../resources/homepage.jpg");
+  background-size: cover;
+  background-attachment: scroll;
+}
+img.inicio {
+  width: 400px;
+  height: 300px;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+img.logo {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+.pictureContainer {
+  display: inline-block;
+}
+.textContainer {
+  margin-bottom: 20px;
+  margin-right: 100px;
+}
+.textContainer h2 {
+  font-family: "Neutrif Pro";
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.966);
+
+  text-align: justify;
+}
+.logoTextButtonContainer {
+
+  position: relative;
+  align-content: center;
+  align-items: center;
+  height: auto;
+  max-width: 600px;
+  width: auto;
+  display: inline-block;
+margin-left: 150px;
+
+  word-wrap: break-word;
+
+  /* background-color: darkcyan; */
+}
+.logoTextButtonContainer h1 {
+  font-family: "Neutrif Pro";
+  font-style: normal;
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 0;
+  color: white;
+}
+
+.buttonStart {
+  text-decoration: none;
+  background-color: #04f1e5bd;
+  border-radius: 30px;
+  border: transparent;
+  height: 30%;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+  width: 40%;
+  margin-left: 120px;
+
+  font-size: large;
+  font-size: large;
+  font-style: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+.buttonStart:hover {
+  background-color: white;
+  transition: 0.5s;
+  color: #04f1e5bd;
+}
+
+@media (max-width: 1260px) {
+.pictureContainer{
+  display: none;
+}
+.bodyContainer {
+
+background-image: linear-gradient(
+  135deg,
+  #277bab 20%,
+  #00acee 60%,
+  #00e0ff 100%
+);
+overflow: auto;
+
+}
+.logoTextButtonContainer{
+
+margin: auto;
+padding-top: 25px;
+display:inherit
+}
+.logoTextButtonContainer h1 {
+  font-size: 60px;
+text-align: center;}
+.logoTextButtonContainer h2 {
+  text-align: center;
+margin: auto;}
+.textContainer{
+  margin: auto;
+}
+.buttonStart{
+margin: auto;
+margin-top: 80px;
+display: inherit;
+height: 60px;
+}
+.Mara{
+display: block;
+padding-top: 20px;
+padding-left: 20px;
+}
+.Mara img{
+  max-width: 100px;
+  height: auto;
+}
+}
