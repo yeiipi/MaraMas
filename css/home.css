@@ -10,12 +10,12 @@
   font-weight: 0;
   font-style: normal;
 }
-.Mara{
+.Mara {
   display: flex;
   padding-top: 20px;
   padding-left: 20px;
 }
-.Mara img{
+.Mara img {
   max-width: 100px;
   height: auto;
 }
@@ -60,7 +60,6 @@ img.logo {
   text-align: justify;
 }
 .logoTextButtonContainer {
-
   position: relative;
   align-content: center;
   align-items: center;
@@ -68,7 +67,7 @@ img.logo {
   max-width: 600px;
   width: auto;
   display: inline-block;
-margin-left: 150px;
+  margin-left: 150px;
 
   word-wrap: break-word;
 
@@ -84,7 +83,7 @@ margin-left: 150px;
 }
 
 .buttonStart {
-  background-color: #04f1e5bd;
+  background-color: #0c1c50;
   border-radius: 30px;
   border: transparent;
   height: 30%;
@@ -104,52 +103,51 @@ margin-left: 150px;
 .buttonStart:hover {
   background-color: white;
   transition: 0.5s;
-  color: #04f1e5bd;
+  color: #0c1c50;
 }
 
 @media (max-width: 1260px) {
-.pictureContainer{
-  display: none;
-}
-.bodyContainer {
-
-background-image: linear-gradient(
-  135deg,
-  #277bab 20%,
-  #00acee 60%,
-  #00e0ff 100%
-);
-overflow: auto;
-
-}
-.logoTextButtonContainer{
-
-margin: auto;
-padding-top: 25px;
-display:inherit
-}
-.logoTextButtonContainer h1 {
-  font-size: 60px;
-text-align: center;}
-.logoTextButtonContainer h2 {
-  text-align: center;
-margin: auto;}
-.textContainer{
-  margin: auto;
-}
-.buttonStart{
-margin: auto;
-margin-top: 80px;
-display: inherit;
-height: 60px;
-}
-.Mara{
-display: block;
-padding-top: 20px;
-padding-left: 20px;
-}
-.Mara img{
-  max-width: 100px;
-  height: auto;
-}
+  .pictureContainer {
+    display: none;
+  }
+  .bodyContainer {
+    background-image: linear-gradient(
+      135deg,
+      #277bab 20%,
+      #00acee 60%,
+      #00e0ff 100%
+    );
+    overflow: auto;
+  }
+  .logoTextButtonContainer {
+    margin: auto;
+    padding-top: 25px;
+    display: inherit;
+  }
+  .logoTextButtonContainer h1 {
+    font-size: 60px;
+    text-align: center;
+  }
+  .logoTextButtonContainer h2 {
+    text-align: center;
+    margin: auto;
+  }
+  .textContainer {
+    margin: auto;
+  }
+  .buttonStart {
+    margin: auto;
+    margin-top: 80px;
+    display: inherit;
+    height: 60px;
+  }
+  .Mara {
+    display: block;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  .Mara img {
+    max-width: 100px;
+    height: auto;
+  }
 }

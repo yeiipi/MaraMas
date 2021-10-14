@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatchers</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
+    <link rel="stylesheet" href="../css/dispatcher.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="Mara">
+                <span><img src="../resources/app_logo_oscuro.png"></span>
+            </div>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a href="dashboard.html">
+                    <i class="las la-project-diagram"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="driver.html">
+                    <i class="las la-car"></i>
+                    <span class="links_name">Driver</span>
+                </a>
+            </li>
+            <li>
+                <a href="dispatcher.html">
+                    <i class="las la-box-open"></i>
+                    <span class="links_name">Dispatcher</span>
+                </a>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../resources/profile_pic.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name">Jane Doe</div>
+                        <div class="job">Administrator</div>
+                    </div>
+                </div>
+                <i class="las la-sign-out-alt" id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <header>
+            <h2>
+                Dispatchers
+            </h2>
+        </header>
+        <main>
+            <div class="dispatcher_info">
+                <div class="dispatcher_list">
+                    <div class="card">
+                        <div class="card_header">
+                            <h1>Company Dispatchers</h1>
+                            <button>See all <span class="las la-arrow-right"></span></button>
+                        </div>
+                        <div class="card_body">
+                            <div class="table_responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Photo</td>
+                                            <td>Identification Number</td>
+                                            <td>First Name</td>
+                                            <td>Last Name</td>
+                                            <td>Status</td>
+                                            <td>Zone</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status green"></span>
+                                                Working
+                                            </td>
+                                            <td>Inventory</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Break
+                                            </td>
+                                            <td>Inventory</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Break
+                                            </td>
+                                            <td>Bay 9</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status green"></span>
+                                                Working
+                                            </td>
+                                            <td>Loading 7</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Break
+                                            </td>
+                                            <td>Inventory</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
+                                            <td>1000300900</td>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Break
+                                            </td>
+                                            <td>Bay 1</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="infor">
+                <div class="progress">
+                    <div class="pack">
+                        <div>
+                            <h1>783</h1>
+                            <span>Number of Packages</span>
+                        </div>
+                        <div>
+                            <span class="las la-box-open"></span>
+                        </div>
+                    </div>
+                    <div class="pack">
+                        <div>
+                            <h1>20.3</h1>
+                            <span>Average Weight of Packages</span>
+                        </div>
+                        <div>
+                            <span class="las la-dumbbell"></span>
+                        </div>
+                    </div>
+                    <div class="pack">
+                        <div>
+                            <h1>19.28</h1>
+                            <span>Average Price of Packages</span>
+                        </div>
+                        <div>
+                            <span class="las la-coins"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="productivity">
+                    <div>
+                        <h1>Warehouse </h1>
+                        <span>Capacity</span>
+                        <div class="prod">
+                            <canvas id="progress_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="general_info">
+                    <div>
+                        <h1>Warehouse</h1>
+                        <span>Facility Locations</span>
+                        <div class="tracking_map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.66581010764!2d-74.07581929989202!3d4.653554146603035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4c5a0af817%3A0x3965b667513f1f70!2sQuinta%20Mutis%2C%20Barrios%20Unidos%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1634163551460!5m2!1ses-419!2sco" width="330" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </main>
+    </div>
+</body>
+<script src="../data/script3.js"></script>
+</html>

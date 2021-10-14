@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
+    <link rel="stylesheet" href="../css/driver.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="Mara">
+                <span><img src="../resources/app_logo_oscuro.png"></span>
+            </div>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a href="dashboard.html">
+                    <i class="las la-project-diagram"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="driver.html">
+                    <i class="las la-car"></i>
+                    <span class="links_name">Driver</span>
+                </a>
+            </li>
+            <li>
+                <a href="dispatcher.html">
+                    <i class="las la-box-open"></i>
+                    <span class="links_name">Dispatcher</span>
+                </a>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../resources/profile_pic.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name">Jane Doe</div>
+                        <div class="job">Administrator</div>
+                    </div>
+                </div>
+                <i class="las la-sign-out-alt" id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <header>
+            <h2>
+                Drivers
+            </h2>
+        </header>
+        <main>
+            <div class="map_vis">
+                <div class="map">
+                    <div>
+                        <h1>Map</h1>
+                        <span>Driver Status</span>
+                        <div class="tracking_map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.966190537294!2d-74.07548684989229!3d4.600078796641745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a6e8dcaa6b%3A0x2e5dcd90c8ed48f5!2sUniversidad%20del%20Rosario!5e0!3m2!1ses-419!2sco!4v1633795747929!5m2!1ses-419!2sco" width="1020" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="fleet_info">
+                <div class="gauge">
+                    <div>
+                        <h1>Vehicle Status</h1>
+                        <span>Efficiency</span>
+                        <div class="gauge_meter">
+                            <canvas id="meter_info"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleet_list">
+                    <div class="card">
+                        <div class="card_header">
+                            <h1>Fleet Information</h1>
+                            <button>See all <span class="las la-arrow-right"></span></button>
+                        </div>
+                        <div class="card_body">
+                            <div class="table_responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>License Plate</td>
+                                            <td>Car Type</td>
+                                            <td>Car Model</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>DYO-820</td>
+                                            <td>Large</td>
+                                            <td>Volvo FH</td>
+                                            <td>
+                                                <span class="status green"></span>
+                                                Active
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>NCS-293</td>
+                                            <td>Medium</td>
+                                            <td>Volvo FMX</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Inactive
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>OSV-934</td>
+                                            <td>Medium</td>
+                                            <td>Volvo FL</td>
+                                            <td>
+                                                <span class="status cyan"></span>
+                                                Maintenance 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>TBE-372</td>
+                                            <td>Large</td>
+                                            <td>Volvo FH</td>
+                                            <td>
+                                                <span class="status green"></span>
+                                                Active
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>LHB-430</td>
+                                            <td>Medium</td>
+                                            <td>Volvo FMX</td>
+                                            <td>
+                                                <span class="status cyan"></span>
+                                                Maintenance 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEW-340</td>
+                                            <td>Medium</td>
+                                            <td>Volvo FL</td>
+                                            <td>
+                                                <span class="status purple"></span>
+                                                Inactive
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </main>
+    </div>
+</body>
+<script src="../data/script2.js"></script>
+</html>
