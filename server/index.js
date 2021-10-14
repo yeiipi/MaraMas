@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT ||4000
 const cors = require ("cors");
-const pool = require("./database");
+const { pool } = require("./database");
 
 // Middleware
 app.use(cors());
 app.use(express.json()) //Permite interactuar con req.body
+app.use(express.urlencoded({ extended:false}))
+app.use('/public', express.static('public'));
 
+app.use('/resources', express.static('resources'));
 //Routes
 // Insert conatiner info
 app.post("/container", async(req,res)=>{  //Revisas si usar async o no
@@ -37,9 +40,24 @@ app.get("/users/login", (req,res) =>{
 app.get("/users/dashboard", (req,res) =>{
     res.render("dashboard", {user: "Sadj"});
 });
-app.use('/public', express.static('public'));
 
-app.use('/resources', express.static('resources'));
+app.post("/users/register", (req ,res)=>{
+    let{ user_name, user_lastname, user_email, user_password}=req.body;
+    console.log({
+        user_name, user_lastname, user_email, user_password
+    }    
+    );
+
+    let errors=[]
+    if(!user_name|| !user_lastname|| !user_email|| !user_password){
+     errors.push({message: "Please enter all the fields"});   
+    }
+    if(user_password.length <6){
+        errors.push({message: "Password is too short"})
+    }
+
+})
+
 
 
 // get specific container
@@ -78,10 +96,6 @@ app.delete("/container/:id", async(req,res)=>{
         console.error(err.message)  
     }
 })
-
-// Register and login routes
-app.use("/auth",require("./routes/jwtAuth"));
-
 
 // Ruta prueba 
 app.use("/prueba",require("./routes/prueba"))

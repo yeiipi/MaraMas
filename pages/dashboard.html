@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="Mara">
+                <span><img src="../resources/app_logo_oscuro.png"></span>
+            </div>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a href="dashboard.html">
+                    <i class="las la-project-diagram"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="driver.html">
+                    <i class="las la-car"></i>
+                    <span class="links_name">Driver</span>
+                </a>
+            </li>
+            <li>
+                <a href="dispatcher.html">
+                    <i class="las la-box-open"></i>
+                    <span class="links_name">Dispatcher</span>
+                </a>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../resources/profile_pic.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name">Jane Doe</div>
+                        <div class="job">Administrator</div>
+                    </div>
+                </div>
+                <i class="las la-sign-out-alt" id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <header>
+            <h2>
+                Dashboard
+            </h2>
+        </header>
+        <main>
+            <div class="dash_cards">
+                <div class="single_card">
+                    <div>
+                        <h1>1569</h1>
+                        <span>Completed Orders</span>
+                    </div>
+                    <div>
+                        <span class="las la-check-circle"></span>
+                    </div>
+                </div>
+                <div class="single_card">
+                    <div>
+                        <h1>19</h1>
+                        <span>Active Orders</span>
+                    </div>
+                    <div>
+                        <span class="las la-spinner"></span>
+                    </div>
+                </div>
+                <div class="single_card">
+                    <div>
+                        <h1>52</h1>
+                        <span>Drivers on the road</span>
+                    </div>
+                    <div>
+                        <span class="las la-road"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="bar_chart">
+                    <div>
+                        <h1>Sales Analytics</h1>
+                        <span>Weekly Shipments</span>
+                        <div class="data_vis_1">
+                            <canvas id="week_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="pie_chart">
+                    <div>
+                        <h1>Shipments</h1>
+                        <span>General Product Information</span>
+                        <div class="data_vis_2">
+                            <canvas id="prod_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress_chart">
+                    <div>
+                        <h1>Order Status</h1>
+                        <span>Efficiency</span>
+                        <div class="data_vis_3">
+                            <canvas id="progress_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="money_and_orders">
+                <div class="line_chart">
+                    <div>
+                        <h1>Economics</h1>
+                        <span>Income vs Expenditure</span>
+                        <div class="data_vis_4">
+                            <canvas id="mon_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="dough_chart">
+                    <div>
+                        <h1>Order Status</h1>
+                        <span>Time Limits</span>
+                        <div class="data_vis_5">
+                            <canvas id="dough_ship"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="../data/script.js"></script>
+</html>
