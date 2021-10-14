@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Neutrif Pro";
-  src: url("../resources/Fonts/NeutrifPro-Light.eot");
-  src: url("../resources/Fonts/NeutrifPro-Bold"),
-    url("../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+  src: url("../../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../../resources/Fonts/NeutrifPro-Bold"),
+    url("../../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
       format("embedded-opentype"),
-    url("../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
-    url("../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
-    url("../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
+    url("../../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
