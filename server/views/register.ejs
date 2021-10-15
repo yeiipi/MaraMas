@@ -19,25 +19,25 @@
         <h1>Registration</h1>
         <ul>
             <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
-            <li><%= error.message %></li>
+                <li class= 'error_class'><%= error.message %></li>
             <% }) %> <% } %>
           </ul>
         <form method="post">
             <div class="text_field">
-                <input name= "user_name" id= "user_name" type="text" >
-                <label>First Name</label>
+                <input name= "user_name" id= "user_name" type="text" required>
+                <label class="first_name_class">First Name</label>
             </div>
             <div class="text_field">
-                <input name= "user_lastname" id= "user_lastname" type="text">
-                <label>Lastname</label>
+                <input name= "user_lastname" id= "user_lastname" type="text" required>
+                <label class="last_name_class">Lastname</label>
             </div>
             <div class="text_field">
-                <input name= "user_email" id= "user_email" type="Email">
-                <label>Email</label>
+                <input name= "user_email" id= "user_email" type="Email" required>
+                <label class="email_class">Email</label>
             </div>
             <div class="text_field">
-                <input name= "user_password" id= "user_password"type="Password">
-                <label>Password</label>
+                <input name= "user_password" id= "user_password"type="Password" required>
+                <label class="pass_class">Password</label>
             </div>
             <input type="submit" value="Register Now">
         </form>

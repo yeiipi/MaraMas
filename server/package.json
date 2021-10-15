@@ -17,6 +17,8 @@
     "express-flash": "0.0.2",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.7.1"
   },
   "devDependencies": {

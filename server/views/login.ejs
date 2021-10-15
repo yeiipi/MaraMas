@@ -26,13 +26,18 @@
                 <li><%= messages.success_msg %></li>
                 <% } %>
               </ul>
+              <ul>
+                <% if (messages.error) { %>
+                <li><%= messages.error %></li>
+                <% } %>
+              </ul>
             <form action="/users/login" method="post">
                 <div class="text_field">
-                    <input id="email" name="email" type="text" required>
+                    <input id="email" name="user_email" id= "user_email" type="text" required>
                     <label>Email</label>
                 </div>
                 <div class="text_field">
-                    <input type="Password" required >
+                    <input name= "user_password" id= "user_password" type="Password" required >
                     <label>Password</label>
                 </div>
                 <div class="pass_forgot">

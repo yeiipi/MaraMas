@@ -1,24 +1,33 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT ||4000
-const cors = require ("cors");
+const PORT = process.env.PORT ||4000;
 const { pool } = require("./database");
 const bcrypt= require("bcrypt");
-const { render } = require("ejs");
-const session= require('express-session');
+const session= require("express-session");
 const flash=  require('express-flash');
+const passport= require("passport")
+
+const initializePassport= require("./passportconfig")
+
+initializePassport(passport);
 
 // Middleware
-app.use(session({
-    secret: 'secret',
-
-    resave: false,
-
-    saveUninitialized: false,
-
-}));
+app.use(
+    session({
+      // Key we want to keep secret which will encrypt all of our information
+      secret: 'secret',
+      // Should we resave our session variables if nothing has changes which we dont
+      resave: false,
+      // Save empty value if there is no vaue which we do not want to do
+      saveUninitialized: false
+    })
+  );
+  // Funtion inside passport which initializes passport
+  app.use(passport.initialize());
+  // Store our variables to be persisted across the whole session. Works with app.use(Session) above
+  app.use(passport.session());
 app.use(flash());
-app.use(cors());
+
 app.use(express.json()) //Permite interactuar con req.body
 app.use(express.urlencoded({ extended:false}))
 app.use('/public', express.static('public'));
@@ -53,16 +62,22 @@ app.get("/users/register", (req,res) =>{
     res.render("register");
 });
 
-app.get("/users/dashboard", (req,res) =>{
-    res.render("dashboard", {user: "Sadj"});
+app.get("/dashboard", (req,res) =>{
+    res.render("dashboard", {user: req.user.user_name});
 });
+
+app.post(
+    "/users/login",
+    passport.authenticate("local", {
+      successRedirect: "/users/dashboard",
+      failureRedirect: "/users/login",
+      failureFlash: true    
+    })
+  );
 
 app.post("/users/register", async(req ,res)=>{
     let{ user_name, user_lastname, user_email, user_password}=req.body;
-    console.log({
-        user_name, user_lastname, user_email, user_password
-    }    
-    );
+   
 
     let errors=[]
     if(!user_name|| !user_lastname|| !user_email|| !user_password){
@@ -75,7 +90,7 @@ app.post("/users/register", async(req ,res)=>{
         res.render('register', {errors})
     }else{ 
         let hashpassword= await bcrypt.hash(user_password, 10);
-        console.log(hashpassword);
+    
     
     pool.query(`SELECT * FROM users WHERE user_email = $1`, [user_email], (err, results)=> 
     {
@@ -83,7 +98,6 @@ app.post("/users/register", async(req ,res)=>{
             throw err
             
         }
-    console.log(results.rows);
     if(results.rows.length>0){
         errors.push({message: "Email already registered"});
         res.render('register', {errors});
@@ -94,8 +108,7 @@ app.post("/users/register", async(req ,res)=>{
             if(err){
                 throw err
             }
-            console.log(results);
-            req.flash("succes_msg", "You are now registered, please log in");
+            req.flash("success_msg", "You are now registered, please log in");
             res.redirect('/users/login');
         })
     }
@@ -104,46 +117,7 @@ app.post("/users/register", async(req ,res)=>{
 })
 
 
-
-// get specific container
-app.get("/container/:id",async(req,res)=>{
-    try {
-        const{id} = req.params;
-        const container = await pool.query("SELECT * FROM container WHERE id_container = $1",
-        [id])
-        res.json(container.rows[0]);
-    } catch (err) {
-        console.error(err.message)
-    }
-})
-
-//update container
-app.put("/container/:id", async(req,res)=>{
-    try {
-        const {id} = req.params;
-        const {capacity} = req.body;
-        // console.log(capacity)
-        const update_container = await pool.query("UPDATE container SET capacity = $1 WHERE id_container=$2",
-        [capacity,id]);
-        res.json("Container was updated!")
-    } catch (err) {
-        console.error(err.message)
-    }
-})
-
-// delete container
-app.delete("/container/:id", async(req,res)=>{
-    try {
-        const{id} = req.params;
-        const deleteContainer = await pool.query("DELETE FROM container WHERE id_container=$1",[id]);
-        res.json("Container was deleted")
-    } catch (err) {
-        console.error(err.message)  
-    }
-})
-
 // Ruta prueba 
-app.use("/prueba",require("./routes/prueba"))
 app.listen(PORT, () => {
     console.log('El servido ha iniciado en puerto '+ PORT);
 });
