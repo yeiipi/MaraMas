@@ -7,7 +7,7 @@
     <title>Registration Page
     </title>
     <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../public/css/register.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
 <body>
@@ -17,22 +17,26 @@
     <div class="card">
 
         <h1>Registration</h1>
-        
+        <ul>
+            <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+            <li><%= error.message %></li>
+            <% }) %> <% } %>
+          </ul>
         <form method="post">
             <div class="text_field">
-                <input type="First Name" required>
+                <input name= "user_name" id= "user_name" type="text" >
                 <label>First Name</label>
             </div>
             <div class="text_field">
-                <input type="Second Name" required>
-                <label>Second Name</label>
+                <input name= "user_lastname" id= "user_lastname" type="text">
+                <label>Lastname</label>
             </div>
             <div class="text_field">
-                <input type="Email" required>
+                <input name= "user_email" id= "user_email" type="Email">
                 <label>Email</label>
             </div>
             <div class="text_field">
-                <input type="Password" required>
+                <input name= "user_password" id= "user_password"type="Password">
                 <label>Password</label>
             </div>
             <input type="submit" value="Register Now">

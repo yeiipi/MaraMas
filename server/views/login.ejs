@@ -21,6 +21,11 @@
         <div class="center_box">
             
             <h1>Login</h1>
+            <ul>
+                <% if(messages.success_msg) { %>
+                <li><%= messages.success_msg %></li>
+                <% } %>
+              </ul>
             <form action="/users/login" method="post">
                 <div class="text_field">
                     <input id="email" name="email" type="text" required>

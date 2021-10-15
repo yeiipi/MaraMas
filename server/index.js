@@ -3,8 +3,21 @@ const app = express();
 const PORT = process.env.PORT ||4000
 const cors = require ("cors");
 const { pool } = require("./database");
+const bcrypt= require("bcrypt");
+const { render } = require("ejs");
+const session= require('express-session');
+const flash=  require('express-flash');
 
 // Middleware
+app.use(session({
+    secret: 'secret',
+
+    resave: false,
+
+    saveUninitialized: false,
+
+}));
+app.use(flash());
 app.use(cors());
 app.use(express.json()) //Permite interactuar con req.body
 app.use(express.urlencoded({ extended:false}))
@@ -36,12 +49,15 @@ app.get("/", (req,res) =>{
 app.get("/users/login", (req,res) =>{
     res.render("login");
 });
+app.get("/users/register", (req,res) =>{
+    res.render("register");
+});
 
 app.get("/users/dashboard", (req,res) =>{
     res.render("dashboard", {user: "Sadj"});
 });
 
-app.post("/users/register", (req ,res)=>{
+app.post("/users/register", async(req ,res)=>{
     let{ user_name, user_lastname, user_email, user_password}=req.body;
     console.log({
         user_name, user_lastname, user_email, user_password
@@ -55,7 +71,36 @@ app.post("/users/register", (req ,res)=>{
     if(user_password.length <6){
         errors.push({message: "Password is too short"})
     }
-
+    if(errors.length>0){
+        res.render('register', {errors})
+    }else{ 
+        let hashpassword= await bcrypt.hash(user_password, 10);
+        console.log(hashpassword);
+    
+    pool.query(`SELECT * FROM users WHERE user_email = $1`, [user_email], (err, results)=> 
+    {
+        if(err){
+            throw err
+            
+        }
+    console.log(results.rows);
+    if(results.rows.length>0){
+        errors.push({message: "Email already registered"});
+        res.render('register', {errors});
+    }
+    else{
+        pool.query(`INSERT INTO users (user_name, user_lastname, user_email, user_password) VALUES ($1, $2, $3, $4)
+        RETURNING user_id, user_password`, [user_name, user_lastname, user_email, hashpassword], (err, results)=>{
+            if(err){
+                throw err
+            }
+            console.log(results);
+            req.flash("succes_msg", "You are now registered, please log in");
+            res.redirect('/users/login');
+        })
+    }
+}
+    )}
 })
 
 
