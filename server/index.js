@@ -55,14 +55,18 @@ app.get("/", (req,res) =>{
     res.render("home");
 });
   
-app.get("/users/login", (req,res) =>{
+app.get("/users/login", checkAuthenticated, (req,res) =>{
     res.render("login");
 });
+app.get("/users/logout", (req, res) => {
+    req.logout();
+    res.render("home", { message: "You have logged out successfully" });
+  });
 app.get("/users/register", (req,res) =>{
     res.render("register");
 });
 
-app.get("/dashboard", (req,res) =>{
+app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
     console.log(req.user)
     res.render("dashboard", {user: req.user.user_name});
 });
@@ -117,7 +121,18 @@ app.post("/users/register", async(req ,res)=>{
     )}
 })
 
-
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return res.redirect("/dashboard");
+    }
+    next();
+  }
+  function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect("/users/login");
+  }
 // Ruta prueba 
 app.listen(PORT, () => {
     console.log('El servido ha iniciado en puerto '+ PORT);

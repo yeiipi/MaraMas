@@ -20,7 +20,7 @@
         </div>
         <ul class="nav_list">
             <li>
-                <a href="dashboard.html">
+                <a href="/dashboard">
                     <i class="las la-project-diagram"></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -46,9 +46,10 @@
                         <div class="name"><%= user.charAt(0).toUpperCase() + user.slice(1) %></div>
                         <div class="job">Administrator</div>
                     </div>
+                </div><a href="users/logout">
+                    <i class="las la-sign-out-alt" id="log_out"></i>
+                </a>
                 </div>
-                <i class="las la-sign-out-alt" id="log_out"></i>
-            </div>
         </div>
     </div>
     
