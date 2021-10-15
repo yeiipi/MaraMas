@@ -63,13 +63,14 @@ app.get("/users/register", (req,res) =>{
 });
 
 app.get("/dashboard", (req,res) =>{
+    console.log(req.user)
     res.render("dashboard", {user: req.user.user_name});
 });
 
 app.post(
     "/users/login",
     passport.authenticate("local", {
-      successRedirect: "/users/dashboard",
+      successRedirect: "/dashboard",
       failureRedirect: "/users/login",
       failureFlash: true    
     })
