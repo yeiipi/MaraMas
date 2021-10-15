@@ -11,7 +11,7 @@ const data2 = {
 };
 
 //Setup data progress chart
-const dp = 33
+const dp = 45
 const datapoints = [dp,(100 - dp)]
 const data3 = {
     datasets: [{label: "Number of products", data: datapoints, backgroundColor: ["#0077b6", "transparent"], borderColor:["#0077b6", "transparent"], borderWidth:3, cutout: '80%', borderRadius: 5 }],
