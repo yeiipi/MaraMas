@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS package;
+DROP TABLE IF EXISTS delivery_person;
+DROP TABLE IF EXISTS vehicle;
+DROP TABLE IF EXISTS dispatcher;
+DROP TABLE IF EXISTS container;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS administrator;
+DROP TABLE IF EXISTS authentication;
+
 CREATE TABLE authentication(
 	id_auth SERIAL NOT NULL,
 	email VARCHAR(50) NOT NULL,
@@ -5,11 +14,21 @@ CREATE TABLE authentication(
 	PRIMARY KEY (id_auth)
 );
 
-	
+CREATE TABLE administrator(
+	id_admin SERIAL NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
+	address VARCHAR(50) NOT NULL,
+	phone_num VARCHAR(10) NOT NULL,
+	id_auth SMALLINT NOT NULL,
+	PRIMARY KEY (id_admin),
+	FOREIGN KEY (id_auth) REFERENCES authentication(id_auth)
+);
 
 CREATE TABLE customer(
 	id_customer SERIAL NOT NULL,
-	username VARCHAR(50) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
 	address VARCHAR(50) NOT NULL,
 	phone_num VARCHAR(10) NOT NULL,
 	pay_method VARCHAR(20),
@@ -28,7 +47,8 @@ CREATE TABLE container(
 
 CREATE TABLE dispatcher(
 	id_dispatcher SERIAL NOT NULL,
-	username VARCHAR(50) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
 	address VARCHAR(50) NOT NULL,
 	phone_num VARCHAR(10) NOT NULL,
 	status SMALLINT NOT NULL,
@@ -44,24 +64,29 @@ CREATE TABLE vehicle(
 	capacity SMALLINT NOT NULL,
 	license_plate VARCHAR(10) NOT NULL,
 	mechanical_status BOOL NOT NULL,
+	location_rt VARCHAR(40),
 	PRIMARY KEY (id_vehicle)
 );
 
 CREATE TABLE delivery_person(
 	id_delivery SERIAL NOT NULL,
-	username VARCHAR(50) NOT NULL,
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
 	address VARCHAR(50) NOT NULL,
 	phone_num VARCHAR(10) NOT NULL,
 	status SMALLINT NOT NULL,
 	id_auth SMALLINT NOT NULL,
 	id_vehicle SMALLINT NOT NULL,
+	id_container SMALLINT NOT NULL,
 	PRIMARY KEY (id_delivery),
 	FOREIGN KEY (id_auth) REFERENCES authentication(id_auth),
-	FOREIGN KEY (id_vehicle) REFERENCES vehicle(id_vehicle)
+	FOREIGN KEY (id_vehicle) REFERENCES vehicle(id_vehicle),
+	FOREIGN KEY (id_container) REFERENCES container(id_container)
 );
 
 CREATE TABLE package(
 	id_package SERIAL NOT NULL,
+	category VARCHAR(50),
 	description VARCHAR(300),
 	source_store VARCHAR(50) NOT NULL,
 	weight_box SMALLINT NOT NULL,
@@ -69,6 +94,9 @@ CREATE TABLE package(
 	width_box SMALLINT NOT NULL,
 	image VARCHAR(100),
 	price NUMERIC(12, 2) NOT NULL,
+	purchase_date DATE NOT NULL,
+	estimated_delivery DATE,
+	delivery_date DATE NOT NULL,
 	delivery_details VARCHAR(250),
 	id_container SMALLINT NOT NULL,
 	id_vehicle SMALLINT NOT NULL,
@@ -77,4 +105,14 @@ CREATE TABLE package(
 	FOREIGN KEY (id_container) REFERENCES container(id_container),
 	FOREIGN KEY (id_vehicle) REFERENCES vehicle(id_vehicle),
 	FOREIGN KEY (id_delivery) REFERENCES delivery_person(id_delivery)
+);
+
+CREATE TABLE coordenadas(
+	id_coords SERIAL NOT NULL,
+	time timestamp NOT NULL,
+	lat FLOAT8,
+	lng FLOAT8,
+	id_vehicle VARCHAR(10) NOT NULL,
+	PRIMARY KEY (id_coords),
+	FOREIGN KEY (id_vehicle) REFERENCES vehicle(license_plate)
 );
