@@ -70,6 +70,10 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
     console.log(req.user)
     res.render("dashboard", {user: req.user.user_name});
 });
+app.get("/register-admin", (req,res) =>{
+    res.render("register-admin");
+});
+
 
 app.post(
     "/users/login",
@@ -79,7 +83,59 @@ app.post(
       failureFlash: true    
     })
   );
-
+  app.post("/register-admin", async(req, res)=>{
+      let {
+          user_name, user_lastname, user_email, user_password, confirm, address, phone_number
+      }=req.body
+      let errors=[]
+      if(!user_name|| !user_lastname|| !user_email|| !user_password ||!address|| !phone_number|| !confirm){
+          errors.push({message: "Please complete all the fields"})
+      }
+      if(user_password<6){
+        errors.push({message: "Your password is too short"})
+      }
+      if(user_password!==confirm){
+          errors.push({message: "Password do not match"})
+      }
+      if(errors.length>0){
+        res.render('register-admin', {errors})}
+      else{
+          let hashpassword= await bcrypt.hash(user_password, 10);
+          pool.query(
+              'SELECT * FROM users WHERE user_email= $1', [user_email], (err, results)=>{
+                  if(err){
+                      throw err
+                  }
+                  if(results.rows.length>0){
+                      errors.push({message: "Sorry, this email is already registered"});
+                      res.render('register-admin', {errors});
+                  }
+                  else{
+                      pool.query(`INSERT INTO users (user_name, user_lastname, user_email, user_password) VALUES ($1, $2, $3, $4)
+                      RETURNING user_id, user_password`, [user_name, user_lastname, user_email, hashpassword], (err, results)=>{
+                          if(err){
+                              throw err
+                          }
+                          const new_user_id= results.rows[0].user_id;
+                         pool.query(
+                        `INSERT INTO administrator (first_name, last_name, address, phone_num, id_auth) VALUES ($1, $2, $3, $4, $5)`,
+                        [user_name, user_lastname, address, phone_number, new_user_id], (err, results)=>{
+                            if(err){
+                                throw err
+                            }
+                            req.flash("success_msg", "You are now registered, please log in");
+                            res.redirect('/users/login');
+                        }
+            )
+                          
+                      }
+                          
+                      )
+                  }
+              }
+          )
+      }
+});
 app.post("/users/register", async(req ,res)=>{
     let{ user_name, user_lastname, user_email, user_password}=req.body;
    
@@ -133,6 +189,10 @@ function checkAuthenticated(req, res, next) {
     }
     res.redirect("/users/login");
   }
+
+  app.use(function(req,res){
+    res.status(404).render('404');
+});
 // Ruta prueba 
 app.listen(PORT, () => {
     console.log('El servido ha iniciado en puerto '+ PORT);
