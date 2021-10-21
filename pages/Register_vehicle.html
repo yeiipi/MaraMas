@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/register_vehicle.css">
+
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="register">
+                <form method="post" action="/register-vehicle" class="register_vehicle">
+                    <h1>Register Vehicle</h1>
+                    <ul>
+                        <p>Aqui iran los errores</p>
+                    </ul>
+                    <div class="text_field">
+                        <div class="input-field">
+                            <input name="capacity" id="capacity" type="text" placeholder="Capacity">
+                        </div>
+                        <div class="input-field">                                
+                            <input name="license_plate" id="license_plate" type="text" placeholder="License_plate"> 
+                        </div>
+                    </div>
+                    <input type="submit" value="Register Now" class="button">
+                </form>
+                <form method="post" action="/delete-vehicle" class="delete_vehicle">
+                    <h1>Delete Vehicle</h1>                        
+                    <ul>
+                        <p>Aqui iran los errores</p>
+                    </ul>
+                    <div class="text_field">
+                        <div class="input-field">
+                            <input name="capacity" id="capacity" type="text" placeholder="Capacity">
+                        </div>
+                        <div class="input-field">
+                            <input name="license_plate" id="license_plate" type="text" placeholder="License_plate"> 
+                        </div>
+                    </div>
+                    <input type="submit" value="Delete Now" class="button solid">
+                </form>
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h2>New Vehicle</h2>
+                        <p>Total vehicles</p>
+                        <p>52</p>
+                        <p>Vehicles working now</p>
+                        <p>48</p>
+                    <button class="button transparent" id="delete">Delete a Vehicle</button>
+                    <input type="button" value="Go Back!" class="button transparent">
+                </div>
+                <img class= "logo" src="../resources/app_logo_oscuro.png" alt="">
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h2>Delete Vehicle</h2>
+                        <p>Total vehicles</p>
+                        <p>52</p>
+                        <p>Vehicles working now</p>
+                        <p>48</p>
+                    <button class="button transparent" id="register">Register a Vehicle</button>
+                    <input type="button" value="Go Back!" class="button transparent">
+                </div>
+                <img class= "logo" src="../resources/app_logo_oscuro.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../data/register_vehicle.js"></script>
+</html>
