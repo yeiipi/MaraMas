@@ -10,7 +10,6 @@
     font-weight: 0;
     font-style: normal;
   }
-  
   * {
     padding: 0;
     margin: 0;
@@ -88,7 +87,7 @@
   .sidebar ul li {
     position: relative;
     height: 50px;
-    width: 75%;
+    width: 80%;
     margin: 0 5px;
     padding-left: 10px;
     list-style: none;
@@ -165,7 +164,6 @@
     line-height: 50px;
     font-size: 20px;
     border-radius: 12px;
-    color: white;
   }
   .content {
     margin-left: 200px;
@@ -184,6 +182,13 @@
     z-index: 100;
   }
   
+  header .date {
+    display: flex;
+    justify-content: center;
+    color: grey;
+    padding-top: 5px;
+  }
+  
   header h2 {
     color: #222;
   }
@@ -193,7 +198,24 @@
     padding-right: 10px;
   }
   
-  /*-----------------------------------------*/
+  input[type="submit"] {
+    width: 45%;
+    float: right;
+    border: 1px solid;
+    border-color: #04f1e5bd;
+    background: #04f1e5bd;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  input[type="submit"]:hover {
+    border-color: #04f1e5bd;
+    transition: 0.5s;
+    background-color: white;
+  
+    color: #04f1e5bd;
+  } /*-----------------------------------------*/
   
   main {
     margin-top: 50px;
@@ -234,8 +256,15 @@
     display: grid;
     grid-template-columns: 507px 243px 243px;
     gap: 20px;
-    margin-top: 20px;
     height: 285px;
+    margin-bottom: 40px;
+  }
+  
+  .bar_chart .selector {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    padding-top: 5px;
   }
   
   .bar_chart {
@@ -262,6 +291,13 @@
     width: 450px;
     height: auto;
     padding-top: 15px;
+  }
+  
+  .pie_chart .selector {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    padding-top: 5px;
   }
   
   .pie_chart {
@@ -320,8 +356,22 @@
     display: grid;
     grid-template-columns: 767px 243px;
     gap: 20px;
-    margin-top: 40px;
     height: 285px;
+  }
+  
+  .card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card_header button {
+    background: #0077b6;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.8rem;
+    padding: 5px 5px;
+    border: 1px solid #0077b6;
   }
   
   .line_chart {
@@ -350,6 +400,13 @@
     padding-top: 15px;
   }
   
+  .dough_chart .selector {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    padding-top: 5px;
+  }
+  
   .dough_chart {
     display: flex;
     justify-content: space-between;
@@ -375,3 +432,4 @@
     height: 225px;
     padding-top: 15px;
   }
+  
