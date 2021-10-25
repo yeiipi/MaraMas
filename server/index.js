@@ -11,6 +11,7 @@ const initializePassport= require("./passportconfig")
 const data = require('./public/data/datos1.json');
 const { default: datoss } = require("./prueba");
 const { allowedNodeEnvironmentFlags } = require("process");
+const { render } = require("ejs");
 initializePassport(passport);
 
 // Middleware
@@ -59,13 +60,10 @@ app.get("/", (req,res) =>{
 app.get("/users/login", checkAuthenticated, (req,res) =>{
     res.render("login");
 });
-app.get("/users/logout", (req, res) => {
+app.get("/logout", (req, res) => {
     req.logout();
     res.render("home", { message: "You have logged out successfully" });
   });
-app.get("/users/register", (req,res) =>{
-    res.render("register");
-});
 
 app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
     pool.query(
@@ -222,9 +220,9 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
                                 let tot=results.rows[0].count
                                 
                                 datoss.data0=cant //Top completed orders
-                                datoss.data6=(cant/tot)*100
+                                datoss.data6=parseFloat(((cant/tot)*100).toFixed(1))
                                 pool.query(`SELECT COUNT(*) FROM package 
-                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (purchase_date between date_trunc('week', current_date::date) and date_trunc('week', current_date ::date) + interval '1 week')
+                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('week', current_date::date) and date_trunc('week', current_date ::date) + interval '1 week')
                                 `, (err, results)=>{
                                     if(err){
                                         throw err
@@ -233,14 +231,14 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
                                     datoss.data7=[]
                                     datoss.data7[0]=results.rows[0].count;
                                     pool.query(`SELECT COUNT(*) FROM package 
-                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (purchase_date between date_trunc('week', current_date::date) and date_trunc('week', current_date ::date) + interval '1 week')
+                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('week', current_date::date) and date_trunc('week', current_date ::date) + interval '1 week')
                                     `, (err, results)=>{
                                         if(err){
                                             throw err;
                                         }
                                         datoss.data7[1]=results.rows[0].count
                                         pool.query(`SELECT COUNT(*) FROM package 
-                                        WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (purchase_date between date_trunc('month', current_date::date) and date_trunc('month', current_date ::date) + interval '1 month')
+                                        WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('month', current_date::date) and date_trunc('month', current_date ::date) + interval '1 month')
                                         `, (err, results)=>{
                                             if(err){
                                                 throw err
@@ -248,14 +246,14 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
                                             datoss.data8=[]
                                             datoss.data8[0]=results.rows[0].count;
                                             pool.query(`SELECT COUNT(*) FROM package 
-                                            WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (purchase_date between date_trunc('month', current_date::date) and date_trunc('month', current_date ::date) + interval '1 month')
+                                            WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('month', current_date::date) and date_trunc('month', current_date ::date) + interval '1 month')
                                             `, (err, results)=>{
                                                 if(err){
                                                     throw err
                                                 }
                                                 datoss.data8[1]=results.rows[0].count
                                                 pool.query(`SELECT COUNT(*) FROM package 
-                                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (purchase_date between date_trunc('year', current_date::date) and date_trunc('year', current_date ::date) + interval '1 year')
+                                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('year', current_date::date) and date_trunc('year', current_date ::date) + interval '1 year')
                                                 `, (err, results)=>{
                                                     if(err){
                                                         throw err
@@ -263,7 +261,7 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
                                                     datoss.data9=[]
                                                     datoss.data9[0]=results.rows[0].count
                                                     pool.query(`SELECT COUNT(*) FROM package 
-                                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (purchase_date between date_trunc('year', current_date::date) and date_trunc('year', current_date ::date) + interval '1 year')
+                                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('year', current_date::date) and date_trunc('year', current_date ::date) + interval '1 year')
                                                     `, (err, results)=>{
                                                         if(err){
                                                             throw err
@@ -371,18 +369,105 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
 
 });
 
-app.get("/register-admin", (req,res) =>{
-    res.render("register-admin");
+app.get("/register", checkNotAuthenticated,(req,res) =>{
+    res.render("register");
 });
-app.get("/register-driver", (req,res) =>{
-    res.render("register-driver");
-});
-app.get("/register-dispat", (req,res) =>{
-    res.render("register-dispat");
-});
+
+app.get("/dispatcher", checkNotAuthenticated, (req, res)=>{
+    res.render("dispatcher", {user: req.user.user_name})
+})
+
+app.get("/driver/vehicles", checkNotAuthenticated, (req, res)=>{
+    const datossss= {}
+            pool.query(`SELECT * FROM vehicle
+            `,(err, results)=>{
+                if(err){
+                    throw err
+                }
+                 datossss.data2=[]
+                 datossss.data3=[]
+                 datossss.data4=[]
+                 datossss.data5=[]
+                 datossss.data6=[]
+                 datossss.data7=[]
+                
+                for(p=0; p<results.rows.length; p++){
+                    
+                    datossss.data2.push(results.rows[p].license_plate)
+                    datossss.data3.push(results.rows[p].tipo)
+                    datossss.data4.push(results.rows[p].model)
+                    datossss.data5.push(results.rows[p].mechanical_status)
+                    datossss.data6.push(results.rows[p].brand)
+                    datossss.data7.push(results.rows[p].capacity)
+                }
+                res.render("fleet", {
+                    user: req.user.user_name,
+                    data1: datossss.data1,
+                    data2: datossss.data2,
+                    data3: datossss.data3,
+                    data4: datossss.data4,
+                    data5: datossss.data5,
+                    data6: datossss.data6,
+                    data7: datossss.data7
+                })
+            })
+        })
+
+app.get("/driver", checkNotAuthenticated,(req,res)=>{
+
+    pool.query(`SELECT COUNT(*) FROM vehicle WHERE mechanical_status= true
+    `, (err, results)=>{
+        if(err){
+            throw err
+        }
+        //Total de vehiculos activos
+        let act=results.rows[0].count
+        pool.query(`SELECT count(*) FROM vehicle WHERE mechanical_status= false
+        `, (err, results)=>{
+            if(err){
+                throw err
+            }
+            const datosss= {data1: [parseInt(act), parseInt(results.rows[0].count)]}
+            pool.query(`SELECT * FROM vehicle
+            `,(err, results)=>{
+                if(err){
+                    throw err
+                }
+                 datosss.data2=[]
+                 datosss.data3=[]
+                 datosss.data4=[]
+                 datosss.data5=[]
+                
+                for(p=0; p<results.rows.length; p++){
+                    
+                    datosss.data2.push(results.rows[p].license_plate)
+                    datosss.data3.push(results.rows[p].tipo)
+                    datosss.data4.push(results.rows[p].model)
+                    datosss.data5.push(results.rows[p].mechanical_status)
+                }
+                console.log(datosss.data3)
+                res.render("driver", {
+                    user: req.user.user_name,
+                    data1: datosss.data1,
+                    data2: datosss.data2,
+                    data3: datosss.data3,
+                    data4: datosss.data4,
+                    data5: datosss.data5,
+                })
+            })
+            
+        })
+    })
+    
+})
+
 
 app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
     let {reference_date}=req.body
+    if(reference_date.length==0){
+        res.redirect("/dashboard")
+    }
+    else{
     pool.query(
         `select
         count(extract(dow from purchase_date) = 1 or null) as monday,
@@ -537,9 +622,9 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                 let tot=results.rows[0].count
                                 
                                 datoss.data0=cant //Top completed orders
-                                datoss.data6=(cant/tot)*100
+                                datoss.data6=parseFloat(((cant/tot)*100).toFixed(1))
                                 pool.query(`SELECT COUNT(*) FROM package 
-                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (estimated_delivery between date_trunc('week', $1::date) and date_trunc('week', $1 ::date) + interval '1 week')
+                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('week', $1::date) and date_trunc('week', $1 ::date) + interval '1 week')
                                 `,[reference_date], (err, results)=>{
                                     if(err){
                                         throw err
@@ -548,7 +633,7 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                     datoss.data7=[]
                                     datoss.data7[0]=results.rows[0].count;
                                     pool.query(`SELECT COUNT(*) FROM package 
-                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (estimated_delivery between date_trunc('week', $1::date) and date_trunc('week', $1 ::date) + interval '1 week')
+                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('week', $1::date) and date_trunc('week', $1 ::date) + interval '1 week')
                                     `, [reference_date],(err, results)=>{
                                         if(err){
                                             throw err;
@@ -556,7 +641,7 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                         datoss.data7[1]=results.rows[0].count
                                         console.log(datoss.data7)
                                         pool.query(`SELECT COUNT(*) FROM package 
-                                        WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (estimated_delivery between date_trunc('month', $1::date) and date_trunc('month', $1 ::date) + interval '1 month')
+                                        WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('month', $1::date) and date_trunc('month', $1 ::date) + interval '1 month')
                                         `,[reference_date], (err, results)=>{
                                             if(err){
                                                 throw err
@@ -564,14 +649,14 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                             datoss.data8=[]
                                             datoss.data8[0]=results.rows[0].count;
                                             pool.query(`SELECT COUNT(*) FROM package 
-                                            WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (estimated_delivery between date_trunc('month', $1::date) and date_trunc('month', $1 ::date) + interval '1 month')
+                                            WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('month', $1::date) and date_trunc('month', $1 ::date) + interval '1 month')
                                             `, [reference_date],(err, results)=>{
                                                 if(err){
                                                     throw err
                                                 }
                                                 datoss.data8[1]=results.rows[0].count
                                                 pool.query(`SELECT COUNT(*) FROM package 
-                                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (estimated_delivery between date_trunc('year', $1::date) and date_trunc('year', $1 ::date) + interval '1 year')
+                                                WHERE (delivery_date is not null) and (delivery_date<=estimated_delivery) and (delivery_date between date_trunc('year', $1::date) and date_trunc('year', $1 ::date) + interval '1 year')
                                                 `,[reference_date], (err, results)=>{
                                                     if(err){
                                                         throw err
@@ -579,7 +664,7 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                                     datoss.data9=[]
                                                     datoss.data9[0]=results.rows[0].count
                                                     pool.query(`SELECT COUNT(*) FROM package 
-                                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (estimated_delivery between date_trunc('year', $1::date) and date_trunc('year', $1 ::date) + interval '1 year')
+                                                    WHERE (delivery_date is not null) and (delivery_date>estimated_delivery) and (delivery_date between date_trunc('year', $1::date) and date_trunc('year', $1 ::date) + interval '1 year')
                                                     `, [reference_date], (err, results)=>{
                                                         if(err){
                                                             throw err
@@ -686,9 +771,8 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
     )
 
 
-})
-app.post(
-    "/users/login",
+}})
+app.post("/users/login",
     passport.authenticate("local", {
       successRedirect: "/dashboard",
       failureRedirect: "/users/login",
@@ -709,8 +793,11 @@ app.post(
     if(user_password!==confirm){
         errors.push({message: "Password do not match"})
     }
+    if(phone_number.length!=10){
+        errors.push({message: "Phone number not valid"})
+    }
     if(errors.length>0){
-      res.render('register-driver', {errors})}
+      res.render('register', {errors})}
     else{
         let hashpassword= await bcrypt.hash(user_password, 10);
         pool.query(
@@ -720,7 +807,7 @@ app.post(
                 }
                 if(results.rows.length>0){
                     errors.push({message: "Sorry, this email is already registered"});
-                    res.render('register-driver', {errors});
+                    res.render('register', {errors});
                 }
                 else{
                     pool.query(`INSERT INTO users (user_name, user_lastname, user_email, user_password) VALUES ($1, $2, $3, $4)
@@ -730,7 +817,7 @@ app.post(
                         }
                         const new_user_id= results.rows[0].user_id;
                        pool.query(
-                      `INSERT INTO delivery_person (first_name, last_name, address, phone_num, id_auth, status) VALUES ($1, $2, $3, $4, $5, 0)`,
+                      `INSERT INTO delivery_person (first_name, last_name, address, phone_num, id_auth, status) VALUES ($1, $2, $3, $4, $5, false)`,
                       [user_name, user_lastname, address, phone_number, new_user_id], (err, results)=>{
                           if(err){
                               throw err
@@ -762,8 +849,11 @@ app.post(
       if(user_password!==confirm){
           errors.push({message: "Password do not match"})
       }
+      if(phone_number.length!=10){
+        errors.push({message: "Phone number not valid"})
+    }
       if(errors.length>0){
-        res.render('register-admin', {errors})}
+        res.render('register', {errors})}
       else{
           let hashpassword= await bcrypt.hash(user_password, 10);
           pool.query(
@@ -773,7 +863,7 @@ app.post(
                   }
                   if(results.rows.length>0){
                       errors.push({message: "Sorry, this email is already registered"});
-                      res.render('register-admin', {errors});
+                      res.render('register', {errors});
                   }
                   else{
                       pool.query(`INSERT INTO users (user_name, user_lastname, user_email, user_password) VALUES ($1, $2, $3, $4)
@@ -801,7 +891,7 @@ app.post(
           )
       }
 });
-app.post("/register-dispat", async(req, res)=>{
+app.post("/register-dispatcher", async(req, res)=>{
     let {
         user_name, user_lastname, user_email, user_password, confirm, address, phone_number
     }=req.body
@@ -815,8 +905,11 @@ app.post("/register-dispat", async(req, res)=>{
     if(user_password!==confirm){
         errors.push({message: "Password do not match"})
     }
+    if(phone_number.length!=10){
+        errors.push({message: "Phone number not valid"})
+    }
     if(errors.length>0){
-      res.render('register-dispat', {errors})}
+      res.render('register', {errors})}
     else{
         let hashpassword= await bcrypt.hash(user_password, 10);
         pool.query(
@@ -826,7 +919,7 @@ app.post("/register-dispat", async(req, res)=>{
                 }
                 if(results.rows.length>0){
                     errors.push({message: "Sorry, this email is already registered"});
-                    res.render('register-dispat', {errors});
+                    res.render('register', {errors});
                 }
                 else{
                     pool.query(`INSERT INTO users (user_name, user_lastname, user_email, user_password) VALUES ($1, $2, $3, $4)

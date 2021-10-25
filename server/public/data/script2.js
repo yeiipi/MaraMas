@@ -1,8 +1,9 @@
 //Setup data gauge meter
-const eff = 90
-const effdata = [(eff*2),(200 - (eff*2))]
+
+const effdata = document.getElementById("vh_stat").getAttribute("value").split(',')
+const eff = parseFloat((parseInt(effdata[0])/(parseInt(effdata[0])+parseInt(effdata[1]))*100).toFixed(1))
 const data6 = {
-  labels: ["Efficiency", "Inefficiency"],
+  labels: ["Active", "Inactive"],
   datasets: [{label: "Gauge", data : effdata, backgroundColor: ["#4ADEDE", '#0077b6'], borderRadius: 5, borderWidth:3, cutout: '70%'}]
 };
 

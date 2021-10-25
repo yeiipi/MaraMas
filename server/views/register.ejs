@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/register.css">
+
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="sing-in">
+                <form method="post" action="/register-admin" class="register-admin">
+                    <h1>Register Admin</h1>
+                    <ul>
+                        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+                            <li class= 'error_class'><%= error.message %></li>
+                        <% }) %> <% } %>
+                      </ul>
+                    <div class="text_field">
+                        <div class="input-field">
+                            <input name="user_name" id="user_name" type="text" placeholder="First Name">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_lastname" id="user_lastname" type="text" placeholder="Last name"> 
+                        </div>
+                        <div class="input-field">
+                            <input name="user_email" id="user_email" type="email" placeholder="Email">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_password" id="user_password" type="password" placeholder="Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="confirm" id="confirm" type="password" placeholder="Confirm Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="address" id="address" type="text" placeholder="Address">
+                        </div>
+                        <div class="input-field">
+                            <input name="phone_number" id="phone_number" type="text" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <input type="submit" value="Register Now" class="button">
+                </form>
+                <form method="post" action="/register-dispatcher" class="register-dispatcher">
+                    <h1>Register Dispatcher</h1>
+                    <ul>
+                        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+                            <li class= 'error_class'><%= error.message %></li>
+                        <% }) %> <% } %>
+                      </ul>
+                    <div class="text_field">
+                        <div class="input-field">
+                            <input name="user_name" id="user_name" type="text" placeholder="First Name">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_lastname" id="user_lastname" type="text" placeholder="Last name"> 
+                        </div>
+                        <div class="input-field">
+                            <input name="user_email" id="user_email" type="email" placeholder="Email">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_password" id="user_password" type="password" placeholder="Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="confirm" id="confirm" type="password" placeholder="Confirm Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="address" id="address" type="text" placeholder="Address">
+                        </div>
+                        <div class="input-field">
+                            <input name="phone_number" id="phone_number" type="text" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <input type="submit" value="Register Now" class="button">
+                </form>
+                <form method="post" action="/register-driver" class="register-driver">
+                    <h1>Register Driver</h1>
+                    <ul>
+                        <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+                            <li class= 'error_class'><%= error.message %></li>
+                        <% }) %> <% } %>
+                      </ul>
+                    <div class="text_field">
+                        <div class="input-field">
+                            <input name="user_name" id="user_name" type="text" placeholder="First Name">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_lastname" id="user_lastname" type="text" placeholder="Last name"> 
+                        </div>
+                        <div class="input-field">
+                            <input name="user_email" id="user_email" type="email" placeholder="Email">
+                        </div>
+                        <div class="input-field">
+                            <input name="user_password" id="user_password" type="password" placeholder="Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="confirm" id="confirm" type="password" placeholder="Confirm Password">
+                        </div>
+                        <div class="input-field">
+                            <input name="address" id="address" type="text" placeholder="Address">
+                        </div>
+                        <div class="input-field">
+                            <input name="phone_number" id="phone_number" type="text" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <input type="submit" value="Register Now" class="button">
+                </form>
+            </div>
+        </div>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h2>New Admin</h2>
+                    <p>Texto explicativo</p>
+                    <button class="button transparent" id="register-dispatcher">register dispatcher</button>
+                    <button class="button transparent" id="register-driver">register driver</button>
+                </div>
+                <img class= "logo" src="../resources/app_logo_oscuro.png" alt="">
+            </div>
+            <div class="panel right1-panel">
+                <div class="content">
+                    <h2>New Dispatcher</h2>
+                    <p>Texto explicativo</p>
+                    <button class="button transparent" id="register-admin">register admin</button>
+                    <button class="button transparent" id="register-driver-2">register driver</button>
+                </div>
+                <img class= "logo" src="../resources/app_logo_oscuro.png" alt="">
+            </div>
+            <div class="panel right2-panel">
+                <div class="content">
+                    <h2>New Driver</h2>
+                    <p>Texto explicativo</p>
+                    <button class="button transparent" id="register-admin-2">register admin</button>
+                    <button class="button transparent" id="register-dispatcher-2">register dispatcher</button>
+                </div>
+                <img class= "logo" src="../resources/app_logo_oscuro.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../public/data/register.js"></script>
+</html>
