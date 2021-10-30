@@ -8,7 +8,7 @@ const flash=  require('express-flash');
 const passport= require("passport")
 const fs = require('fs');
 const initializePassport= require("./passportconfig")
-const data = require('./public/data/datos1.json');
+
 const { default: datoss } = require("./prueba");
 const { allowedNodeEnvironmentFlags } = require("process");
 const { render } = require("ejs");
@@ -310,8 +310,11 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
                                                                     throw err
                                                                 }
                                                                 datoss.data13= results.rows[0].count
+                                                                var today = new Date();
+                                                                var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                                                 res.render("dashboard", {
                                                                     user: req.user.user_name,
+                                                                    data100: date,
                                                                     data0: datoss.data0,
                                                                     data1: datoss.data1,
                                                                     data2: datoss.data2,
@@ -715,6 +718,7 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
                                                                 datoss.data13= results.rows[0].count
                                                                 res.render("dashboard", {
                                                                     user: req.user.user_name,
+                                                                    data100: reference_date,
                                                                     data0: datoss.data0,
                                                                     data1: datoss.data1,
                                                                     data2: datoss.data2,
