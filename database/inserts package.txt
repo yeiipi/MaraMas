@@ -1,0 +1,491 @@
+select * from package
+
+CREATE OR REPLACE FUNCTION randomint_between(low INT ,high INT) 
+   RETURNS INT AS
+$$
+BEGIN
+   RETURN floor(random()* (high-low + 1) + low);
+END;
+$$ language 'plpgsql' STRICT;
+
+CREATE OR REPLACE FUNCTION randomfloat_between(low INT ,high INT) 
+   RETURNS INT AS
+$$
+BEGIN
+   RETURN random()* (high-low + 1) + low;
+END;
+$$ language 'plpgsql' STRICT;
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (10,'AAD121',True);
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (20,'QWE333',False);
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (10,'DWD434',True);
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (10,'JIJ553',True);
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (10,'DSV435',True);
+
+insert into vehicle(capacity,license_plate,mechanical_status)
+values (15,'JDK435',True);
+
+
+
+
+
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-26',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-26',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-26',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-27',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-26',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-26',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-24',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-24', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-26');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-28',1, randomint_between(1,9), 4, '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Carulla', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-25',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-25', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-27');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-26',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-26', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-28');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Olimpica', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-27',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-27', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-29');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-28', '2021-8-28',1, randomint_between(1,9), randomint_between(6,9), '2021-8-30');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-1',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-2',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-1',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-2',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-2',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Food', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-30',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-1',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-29',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Cloth', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-9-1',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+Insert into package(category, source_store, weight_box, height_box, width_box, price, purchase_date, delivery_date, id_container, id_vehicle, id_delivery, estimated_delivery)
+VALUES('Electronic', 'Exito', randomint_between(1,100),randomint_between(1,100) , randomint_between(1,100),randomfloat_between(10,300), '2021-8-29', '2021-8-31',1, randomint_between(1,9), randomint_between(6,9), '2021-8-31');
+
+
+select * from package
+
+
