@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deliveries</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
+    <link rel="stylesheet" href="../css/dipatch_page.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="Mara">
+                <span><img src="../resources/app_logo_oscuro.png"></span>
+            </div>
+        </div>
+        <!-- <ul class="nav_list">
+            <li>
+                <a href="dashboard.html">
+                    <i class="las la-project-diagram"></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="driver.html">
+                    <i class="las la-car"></i>
+                    <span class="links_name">Driver</span>
+                </a>
+            </li>
+            <li>
+                <a href="dispatcher.html">
+                    <i class="las la-box-open"></i>
+                    <span class="links_name">Dispatcher</span>
+                </a>
+            </li>
+        </ul> -->
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../resources/profile_pic.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name">Jane Doe</div>
+                        <div class="job">Dispatcher</div>
+                    </div>
+                </div>
+                <i class="las la-sign-out-alt" id="log_out"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <header>
+            <h2>
+                Deliveries
+            </h2>
+        </header>
+        <main>
+            <div class="fleet_list">
+                <div class="card">
+                    <div class="card_header">
+                        <h1>Today's Deliveries</h1>
+                    </div>
+                    <div class="card_body">
+                        <div class="table_responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Package's Delivery ID</td>
+                                        <td>Category</td>
+                                        <td>Delivery Date</td>
+                                        <td>Car License Plate</td>
+                                        <td>Loading Status</td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10023872335</td>
+                                        <td>
+                                            <span class="status elec"></span>
+                                            Electronics
+                                        </td>
+                                        <td>12-24-2021</td>
+                                        <td>NCS-293</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238722875</td>
+                                        <td>
+                                            <span class="status food"></span>
+                                            Food
+                                        </td>
+                                        <td>11-24-2021</td>
+                                        <td>NHE-678</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>90238722875</td>
+                                        <td>
+                                            <span class="status food"></span>
+                                            Food
+                                        </td>
+                                        <td>12-24-2021</td>
+                                        <td>RTJ-635</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238733375</td>
+                                        <td>
+                                            <span class="status cloth"></span>
+                                            Clothes
+                                        </td>
+                                        <td>12-29-2021</td>
+                                        <td>NPO-333</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238993375</td>
+                                        <td>
+                                            <span class="status elec"></span>
+                                            Electronics
+                                        </td>
+                                        <td>12-01-2021</td>
+                                        <td>IPO-393</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238733355</td>
+                                        <td>
+                                            <span class="status cloth"></span>
+                                            Clothes
+                                        </td>
+                                        <td>10-30-2021</td>
+                                        <td>SSS-338</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10023872335</td>
+                                        <td>
+                                            <span class="status elec"></span>
+                                            Electronics
+                                        </td>
+                                        <td>12-24-2021</td>
+                                        <td>NCS-293</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238722875</td>
+                                        <td>
+                                            <span class="status food"></span>
+                                            Food
+                                        </td>
+                                        <td>11-24-2021</td>
+                                        <td>NHE-678</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>90238722875</td>
+                                        <td>
+                                            <span class="status food"></span>
+                                            Food
+                                        </td>
+                                        <td>12-24-2021</td>
+                                        <td>RTJ-635</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238733375</td>
+                                        <td>
+                                            <span class="status cloth"></span>
+                                            Clothes
+                                        </td>
+                                        <td>12-29-2021</td>
+                                        <td>NPO-333</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238993375</td>
+                                        <td>
+                                            <span class="status elec"></span>
+                                            Electronics
+                                        </td>
+                                        <td>12-01-2021</td>
+                                        <td>IPO-393</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238733355</td>
+                                        <td>
+                                            <span class="status cloth"></span>
+                                            Clothes
+                                        </td>
+                                        <td>10-30-2021</td>
+                                        <td>SSS-338</td>
+                                        <td>
+                                            <span class="status green"></span>
+                                            Loaded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10023872335</td>
+                                        <td>
+                                            <span class="status elec"></span>
+                                            Electronics
+                                        </td>
+                                        <td>12-24-2021</td>
+                                        <td>NCS-293</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>10238722875</td>
+                                        <td>
+                                            <span class="status food"></span>
+                                            Food
+                                        </td>
+                                        <td>11-24-2021</td>
+                                        <td>NHE-678</td>
+                                        <td>
+                                            <span class="status reddish"></span>
+                                            Pending
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="../data/script.js"></script>
+</html>
