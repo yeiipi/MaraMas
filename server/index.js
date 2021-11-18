@@ -57,7 +57,7 @@ app.get("/", (req,res) =>{
     res.render("home");
 });
   
-app.get("/users/login", checkAuthenticated, (req,res) =>{
+app.get("/users/login", (req,res) =>{
     res.render("login");
 });
 app.get("/logout", (req, res) => {
@@ -65,7 +65,7 @@ app.get("/logout", (req, res) => {
     res.render("home", { message: "You have logged out successfully" });
   });
 
-app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
+app.get("/dashboard", checkAdmin, (req,res) =>{
     pool.query(
         `select
         count(extract(dow from purchase_date) = 1 or null) as monday,
@@ -372,15 +372,68 @@ app.get("/dashboard", checkNotAuthenticated, (req,res) =>{
 
 });
 
-app.get("/register", checkNotAuthenticated,(req,res) =>{
+app.get("/register", checkAdmin,(req,res) =>{
     res.render("register");
 });
 
-app.get("/dispatcher", checkNotAuthenticated, (req, res)=>{
-    res.render("dispatcher", {user: req.user.user_name})
+app.get("/dispatcher", checkAdmin, (req, res)=>{
+    var disp_data={}
+    pool.query(`SELECT COUNT(*) FROM package WHERE delivery_date is null
+    `, (err, results)=>{
+        if (err){
+            throw err
+        }
+        disp_data.data0=results.rows[0].count;
+        pool.query(`SELECT AVG(price)::numeric(20, 2) as avg, avg(weight_box)::numeric(20, 2)as weight FROM package
+        `, (err, results)=>{
+            if(err){
+                throw err
+            }
+            disp_data.data1=results.rows[0].avg;
+            disp_data.data2=results.rows[0].weight;
+            disp_data.data3=[]
+            disp_data.data4=[]
+            disp_data.data5=[]
+            disp_data.data6=[]
+            disp_data.data7=[]
+            disp_data.data8=[]
+            pool.query(`SELECT * FROM dispatcher
+            `, (err, results)=>{
+                if (err){
+                    throw err
+                }
+                for(p=0; p<results.rows.length; p++){
+                    
+                    disp_data.data3.push(results.rows[p].id_number)
+                    disp_data.data4.push(results.rows[p].first_name)
+                    disp_data.data5.push(results.rows[p].last_name)
+                    disp_data.data6.push(results.rows[p].address)
+                    disp_data.data7.push(results.rows[p].phone_num)
+                    disp_data.data8.push(results.rows[p].status)
+                }
+                res.render("dispatcher", {
+                    user: req.user.user_name, 
+                    data0: disp_data.data0,
+                    data1: disp_data.data1,
+                    data2: disp_data.data2,
+                    data3: disp_data.data3,
+                    data4: disp_data.data4,
+                    data5: disp_data.data5,
+                    data6: disp_data.data6,
+                    data7: disp_data.data7,
+                    data8: disp_data.data8
+                });
+                
+            })
+            
+    }
+    
+    )
+        })
+    
 })
 
-app.get("/driver/vehicles", checkNotAuthenticated, (req, res)=>{
+app.get("/driver/vehicles", checkAdmin, (req, res)=>{
     const datossss= {}
             pool.query(`SELECT * FROM vehicle
             `,(err, results)=>{
@@ -416,7 +469,7 @@ app.get("/driver/vehicles", checkNotAuthenticated, (req, res)=>{
             })
         })
 
-app.get("/driver", checkNotAuthenticated,(req,res)=>{
+app.get("/driver", checkAdmin,(req,res)=>{
 
     pool.query(`SELECT COUNT(*) FROM vehicle WHERE mechanical_status= true
     `, (err, results)=>{
@@ -464,8 +517,13 @@ app.get("/driver", checkNotAuthenticated,(req,res)=>{
     
 })
 
+app.get("/dispatch-deliv", checkDispat,(req, res)=>{
+    res.render("dispatch_page", {
+        user: req.user.user_name
+    })
+})
 
-app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
+app.post("/dashboard", checkAdmin,(req, res)=>{
     let {reference_date}=req.body
     if(reference_date.length==0){
         res.redirect("/dashboard")
@@ -776,14 +834,49 @@ app.post("/dashboard", checkNotAuthenticated,(req, res)=>{
 
 
 }})
-app.post("/users/login",
-    passport.authenticate("local", {
-      successRedirect: "/dashboard",
-      failureRedirect: "/users/login",
-      failureFlash: true    
-    })
-  );
-  app.post("/register-driver", async(req, res)=>{
+app.post("/users/login", 
+    passport.authenticate("local", {    
+        failureRedirect: "/users/login",
+        failureFlash: true    
+      }), function(req,res){
+        let{user_email}=req.body
+        pool.query(`SELECT user_id FROM users WHERE user_email=$1`,
+    [user_email],(err, results)=>{
+        if(results.rows.length>0){
+            
+            let user_id= results.rows[0].user_id
+                pool.query(`SELECT * FROM dispatcher WHERE id_auth=$1 
+        `, [user_id], (err, results)=>{
+            if (results.rows.length>0){
+                 res.redirect("/dispatch-deliv")                  
+                }
+                else{
+                
+            pool.query(` SELECT * FROM delivery_person WHERE id_auth=$1 
+        `, [user_id], (err, results)=>{
+            if (results.rows.length>0){
+                 res.redirect("/driver")
+            }else{
+            pool.query(` SELECT * FROM administrator WHERE id_auth=$1 
+        `, [user_id], (err, results)=>{
+            if (results.rows.length>0){
+               res.redirect("/dashboard")
+            }
+        })}
+        })
+    }
+        }
+        
+        )
+        
+            }}
+            
+    
+        
+        )})
+
+    ;
+app.post("/register-driver",checkAdmin, async(req, res)=>{
     let {
         user_name, user_lastname, user_email, user_password, confirm, address, phone_number
     }=req.body
@@ -839,7 +932,7 @@ app.post("/users/login",
         )
     }
 });
-  app.post("/register-admin", async(req, res)=>{
+app.post("/register-admin",checkAdmin, async(req, res)=>{
       let {
           user_name, user_lastname, user_email, user_password, confirm, address, phone_number
       }=req.body
@@ -895,7 +988,7 @@ app.post("/users/login",
           )
       }
 });
-app.post("/register-dispatcher", async(req, res)=>{
+app.post("/register-dispatcher", checkAdmin, async(req, res)=>{
     let {
         user_name, user_lastname, user_email, user_password, confirm, address, phone_number
     }=req.body
@@ -958,7 +1051,38 @@ function checkAuthenticated(req, res, next) {
     }
     next();
   }
-  function checkNotAuthenticated(req, res, next) {
+function checkAdmin(req, res, next) {
+    if (req.isAuthenticated()) {
+        pool.query(`SELECT * FROM administrator WHERE id_auth=$1
+        `, [req.user.user_id], (err,results)=>{
+            if(results.rows.length>0){
+                return next()
+            }
+            else{
+                res.status(401).render("401")
+            }
+        })
+    }
+  else{
+    res.redirect("/users/login")
+    }}
+function checkDispat(req, res, next){
+    if (req.isAuthenticated()) {
+        pool.query(`SELECT * FROM dispatcher WHERE id_auth=$1
+        `, [req.user.user_id], (err,results)=>{
+            if(results.rows.length>0){
+                return next()
+            }
+            else{
+                res.status(401).render("401")
+            }
+        })
+    }
+  else{
+    res.redirect("/users/login")
+    }
+}
+function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     }

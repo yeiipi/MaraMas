@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Neutrif Pro";
+  src: url("../../resources/Fonts/NeutrifPro-Light.eot");
+  src: url("../../resources/Fonts/NeutrifPro-Bold"),
+    url("../../resources/Fonts/NeutrifPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../resources/Fonts/NeutrifPro-Bold.woff2") format("woff2"),
+    url("../../resources/Fonts/NeutrifPro-Bold.woff") format("woff"),
+    url("../../resources/Fonts/NeutrifPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+}
+
+.bodyContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: url("../../resources/401page.jpg");
+  background-size: cover;
+}
+
+.top_left_logo {
+  margin-top: 18px;
+  margin-left: 18px;
+  margin-bottom: 4%;
+  width: 130px;
+}
+
+.container {
+  font-family: "Neutrif Pro";
+  text-align: center;
+  padding: 5px;
+  margin-left: 7%;
+  float: left;
+  display: block;
+}
+
+.container h1 {
+  color: #0c1c30;
+  font-weight: 500;
+  font-size: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.container p {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.container input {
+  margin-top: 5px;
+  border: 2px solid #0c1c30;
+  border-radius: 24px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #0c1c30;
+  width: 130px;
+  cursor: pointer;
+}
+
+.container input:hover {
+  background-color: #0c1c50;
+}
+
+.image {
+  transform: translateX(-10%);
+  transform: translateY(-5%);
+  float: right;
+  margin-right: 7%;
+}
+
+.image img {
+  width: auto;
+  max-width: 800px;
+}
+@media (max-width: 1250px) {
+  .container {
+    align-self: center;
+    padding: auto;
+    margin: auto;
+    float: none;
+  }
+  .bodyContainer {
+    justify-content: center;
+    padding: auto;
+  }
+  .image {
+    display: none;
+  }
+}

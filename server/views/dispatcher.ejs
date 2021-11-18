@@ -82,79 +82,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>Jane</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status green"></span>
-                                                Working
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                Break
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>Jane</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                Break
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status green"></span>
-                                                Working
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                Break
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><img src="../resources/profile_pic_2.jpg" width="20px" height="20px" alt=""></td>
-                                            <td>1000300900</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>Cra. 1 #18a-12</td>
-                                            <td>01344430541</td>
-                                            <td>
-                                                <span class="status purple"></span>
-                                                Break
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                        <% if (typeof data3 != 'undefined') { %>
+                                            <% for(i=0; 6>i; i++){ %>
+                                                <tr>
+                                                    <td><img src="../resources/profile_pic.jpg" width="20px" height="20px" alt=""></td>
+                                                    <td><%=data3[i]%></td>
+                                                    <td><%=data4[i]%></td>
+                                                    <td><%=data5[i]%></td>
+                                                    <td><%=data6[i]%></td>
+                                                    <td><%=data7[i]%></td>
+                                                    <td>
+                                                   <% if(data8[i]==0){  %>
+                                                   <span class="status green"></span>
+                                                   NOT WORKING
+                                                   <% } %>
+                                                   <% if(data5[i]==1){  %>
+                                                       <span class="status purple"></span>
+                                                       BREAK
+                                                       <% } %>
+                                                       <% if(data5[i]==2){  %>
+                                                        <span class="status purple "></span>
+                                                        WORKING
+                                                        <% } %>
+                                               </td>
+                                           </tr>
+                                       <%}%> <% }%>
+                                      
+                                       
+                                   </tbody>
                                 </table>
                             </div>
                         </div>
@@ -165,7 +120,7 @@
                 <div class="progress">
                     <div class="pack">
                         <div>
-                            <h1>783</h1>
+                            <h1><%=data0%></h1>
                             <span>Number of Packages</span>
                         </div>
                         <div>
@@ -174,7 +129,7 @@
                     </div>
                     <div class="pack">
                         <div>
-                            <h1>20.3 kg</h1>
+                            <h1><%=data2%> kg</h1>
                             <span>Package Average Weight</span>
                         </div>
                         <div>
@@ -183,7 +138,7 @@
                     </div>
                     <div class="pack">
                         <div>
-                            <h1>19.28 USD</h1>
+                            <h1><%=data1%> USD</h1>
                             <span>Package Average Price</span>
                         </div>
                         <div>

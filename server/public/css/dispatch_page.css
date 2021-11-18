@@ -42,9 +42,9 @@
     height: 100%;
     background-image: linear-gradient(
       135deg,
-      #277bab 20%,
-      #00acee 60%,
-      #00e0ff 100%
+      #4427ab 20%,
+      #6700ee 60%,
+      #9900ff 100%
     );
     scroll-margin-inline: 100;
   }
@@ -88,7 +88,7 @@
   .sidebar ul li {
     position: relative;
     height: 50px;
-    width: 80%;
+    width: 75%;
     margin: 0 5px;
     padding-left: 10px;
     list-style: none;
@@ -128,7 +128,7 @@
     position: relative;
     padding: 10px 6px;
     height: 60px;
-    background: #00e0ff 50%;
+    background: #9900ff 50%;
   }
   
   .profile_content .profile .profile_details {
@@ -184,13 +184,6 @@
     z-index: 100;
   }
   
-  header .date {
-    display: flex;
-    justify-content: center;
-    color: grey;
-    padding-top: 5px;
-  }
-  
   header h2 {
     color: #222;
   }
@@ -200,15 +193,15 @@
     padding-right: 10px;
   }
   
+  /*-----------------------------------------*/
+  
   main {
     margin-top: 50px;
     font-size: 12px;
     padding: 20px 15px;
     background-color: #f1f5f9;
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 60px);
   }
-  
-  /*--------------------------------------------------------------------------------------------------------*/
   
   .card {
     background: #fff;
@@ -278,7 +271,7 @@
   }
   
   .status.purple {
-    background: red;
+    background: #b5179e;
   }
   
   .status.cyan {
@@ -289,12 +282,16 @@
     background: #7ae582;
   }
   
-  .status.yellow {
-    background: #ffb703;
+  .status.elec {
+    background: #0077b6;
   }
   
-  .status.orange {
-    background: #fb8500;
+  .status.cloth {
+    background: #00b4d8;
+  }
+  
+  .status.food {
+    background: #4adede;
   }
   
   .status.reddish {
@@ -305,3 +302,145 @@
     width: 100%;
     overflow-x: auto;
   }
+  
+  /* .dash_cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 10px;
+  }
+  .single_card {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .single_card span {
+    color: grey;
+  }
+  .single_card span:first-child {
+    font-size: 2rem;
+  }
+  .single_card div:last-child span {
+    color: #023e8a;
+  }
+  .charts {
+    display: grid;
+    grid-template-columns: 507px 243px 243px;
+    gap: 20px;
+    margin-top: 20px;
+    height: 285px;
+  }
+  .bar_chart {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .bar_chart span {
+    color: grey;
+  }
+  .bar_chart span:first-child {
+    font-size: 2rem;
+  }
+  .bar_chart div:last-child span {
+    color: grey;
+  }
+  .data_vis_1 {
+    width: 450px;
+    height: auto;
+    padding-top: 15px;
+  }
+  .pie_chart {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .pie_chart span {
+    color: grey;
+  }
+  .pie_chart span:first-child {
+    font-size: 2rem;
+  }
+  .pie_chart div:last-child span {
+    color: grey;
+  }
+  .data_vis_2 {
+    width: 225px;
+    height: 225px;
+    padding-top: 15px;
+  }
+  .progress_chart {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .progress_chart span {
+    color: grey;
+  }
+  .progress_chart span:first-child {
+    font-size: 2rem;
+  }
+  .progress_chart div:last-child span {
+    color: grey;
+  }
+  .data_vis_3 {
+    width: 225px;
+    height: 225px;
+    padding-top: 15px;
+  }
+  .money_and_orders {
+    display: grid;
+    grid-template-columns: 767px 243px;
+    gap: 20px;
+    margin-top: 40px;
+    height: 285px;
+  }
+  .line_chart {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .line_chart span {
+    color: grey;
+  }
+  .line_chart span:first-child {
+    font-size: 2rem;
+  }
+  .line_chart div:last-child span {
+    color: grey;
+  }
+  .data_vis_4 {
+    width: 745px;
+    height: 225px;
+    padding-top: 15px;
+  }
+  .dough_chart {
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .dough_chart span {
+    color: grey;
+  }
+  .dough_chart span:first-child {
+    font-size: 2rem;
+  }
+  .dough_chart div:last-child span {
+    color: grey;
+  }
+  .data_vis_5 {
+    width: 225px;
+    height: 225px;
+    padding-top: 15px;
+  } */
