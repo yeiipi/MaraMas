@@ -1,0 +1,8 @@
+POST http://localhost:4000/location
+Content-Type: application/json
+
+{
+    "latitud": 3333,
+    "longitud":44,
+    "id": 5
+}

@@ -41,6 +41,34 @@
             <h2>
                 Deliveries
             </h2>
+            <div class="actual">
+                CURRENT STATUS: <% if(data0==0){%>
+                    Not working
+                    <% } %>
+                    <%if(data0==1){%>
+                    Break
+                    <%}%>
+                    <%if(data0==2){%>
+                    Working
+                    <%}%>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Status 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <form method="post" action="/working">
+                    <input type="submit" value="Working">
+                </form>
+                  
+                <form method="post" action="/break">
+                    <input type="submit" value="Break">
+                </form>
+                <form method="post" action="/notwork">
+                    <input type="submit" value="Not work">
+                </form>
+                </div>
+              </div>
         </header>
         <main>
             <div class="fleet_list">

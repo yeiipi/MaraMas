@@ -518,9 +518,17 @@ app.get("/driver", checkAdmin,(req,res)=>{
 })
 
 app.get("/dispatch-deliv", checkDispat,(req, res)=>{
-    res.render("dispatch_page", {
-        user: req.user.user_name
+    pool.query(`SELECT status FROM dispatcher WHERE id_auth= $1
+    `, [req.user.user_id], (err, results)=>{
+        if(err){
+            throw err
+        }
+        res.render("dispatch_page", {
+            user: req.user.user_name,
+            data0: results.rows[0].status
+        })
     })
+    
 })
 
 app.post("/dashboard", checkAdmin,(req, res)=>{
@@ -932,6 +940,66 @@ app.post("/register-driver",checkAdmin, async(req, res)=>{
         )
     }
 });
+app.post("/working", checkDispat, (req, res)=>{
+    pool.query(`UPDATE dispatcher SET status=2 WHERE id_auth= $1
+    `, [req.user.user_id], (err)=>{
+        if(err){
+            throw err
+        }
+        pool.query(`SELECT status FROM dispatcher WHERE id_auth= $1
+    `, [req.user.user_id], (err, results)=>{
+        if(err){
+            throw err
+        }
+        res.render("dispatch_page", {
+            user: req.user.user_name,
+            data0: results.rows[0].status
+        })
+    })   
+    })
+
+    
+})
+app.post("/break", checkDispat, (req, res)=>{
+    pool.query(`UPDATE dispatcher SET status=1 WHERE id_auth= $1
+    `, [req.user.user_id], (err)=>{
+        if(err){
+            throw err
+        }
+        pool.query(`SELECT status FROM dispatcher WHERE id_auth= $1
+    `, [req.user.user_id], (err, results)=>{
+        if(err){
+            throw err
+        }
+        res.render("dispatch_page", {
+            user: req.user.user_name,
+            data0: results.rows[0].status
+        })
+    })
+    })
+
+    
+})
+app.post("/notwork", checkDispat, (req, res)=>{
+    pool.query(`UPDATE dispatcher SET status=0 WHERE id_auth= $1
+    `, [req.user.user_id], (err)=>{
+        if(err){
+            throw err
+        }
+        pool.query(`SELECT status FROM dispatcher WHERE id_auth= $1
+    `, [req.user.user_id], (err, results)=>{
+        if(err){
+            throw err
+        }
+        res.render("dispatch_page", {
+            user: req.user.user_name,
+            data0: results.rows[0].status
+        })
+    })
+    })
+
+    
+})
 app.post("/register-admin",checkAdmin, async(req, res)=>{
       let {
           user_name, user_lastname, user_email, user_password, confirm, address, phone_number
@@ -990,10 +1058,10 @@ app.post("/register-admin",checkAdmin, async(req, res)=>{
 });
 app.post("/register-dispatcher", checkAdmin, async(req, res)=>{
     let {
-        user_name, user_lastname, user_email, user_password, confirm, address, phone_number
+        user_name, user_lastname, user_email, user_password, confirm, address, phone_number, identification
     }=req.body
     let errors=[]
-    if(!user_name|| !user_lastname|| !user_email|| !user_password ||!address|| !phone_number|| !confirm){
+    if(!user_name|| !user_lastname|| !user_email|| !user_password ||!address|| !phone_number|| !confirm|| !identification){
         errors.push({message: "Please complete all the fields"})
     }
     if(user_password<6){
@@ -1026,8 +1094,8 @@ app.post("/register-dispatcher", checkAdmin, async(req, res)=>{
                         }
                         const new_user_id= results.rows[0].user_id;
                        pool.query(
-                      `INSERT INTO dispatcher (first_name, last_name, address, phone_num, id_auth, status) VALUES ($1, $2, $3, $4, $5, 0)`,
-                      [user_name, user_lastname, address, phone_number, new_user_id], (err, results)=>{
+                      `INSERT INTO dispatcher (first_name, last_name, address, phone_num, id_auth, status, id_number) VALUES ($1, $2, $3, $4, $5, 0, $6)`,
+                      [user_name, user_lastname, address, phone_number, new_user_id, identification], (err, results)=>{
                           if(err){
                               throw err
                           }
@@ -1044,6 +1112,19 @@ app.post("/register-dispatcher", checkAdmin, async(req, res)=>{
         )
     }
 });
+app.post("/location", (req, res)=>{
+    console.log("si entree")
+    let {id, longitud, latitud}=req.body
+    pool.query(`UPDATE vehicle SET longitud=$1, latitud=$2, tiempo=current_timestamp WHERE id_vehicle= $3
+    `, [longitud, latitud, id], (err)=>{
+        if(err){
+            throw err
+        }
+    })
+
+    
+})
+
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

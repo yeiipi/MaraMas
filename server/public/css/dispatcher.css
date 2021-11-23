@@ -271,11 +271,14 @@
   }
   
   .status.purple {
-    background: #ffb703;
+    background:purple;
   }
   
   .status.green {
     background: #fb8500;
+  }
+  .status.blue {
+    background: #00acee;
   }
   
   .table_responsive {
