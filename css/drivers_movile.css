@@ -276,3 +276,20 @@ img{
     margin-left: 1%;
     margin-bottom: 1%;
 }
+
+.map_card{
+    width: 100%;
+    height:max-content;
+    background: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    border-radius: 5px;
+}
+
+
+#map {
+  height: 500px;
+  width: 100%;
+  background-color: grey;
+}

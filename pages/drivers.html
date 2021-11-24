@@ -19,8 +19,12 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
+    <!-- Show locations on map -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD73z8FbBBobZd9RORGZXWraLpWXiGlDWo"></script>
+    <script type="text/javascript" src="/scripts/plot_on_map.js"></script>
+    
 </head>
-<body>
+<body onload="InitMap();">
     <!-- sidebar -->
     <div class="sidebar">
         <div class="logo_content">
@@ -29,9 +33,9 @@
             </div>
         </div>
         <ul class="nav_list">
-            <!-- <li><a href=""><i class="las la-info-circle"><span class="links_name">General</span></i></a></li>
-            <li><a href=""><i class="lar la-calendar-check"><span class="links_name">Schedule</span></i></a></li> -->
-            <li><a href=""><i class="las la-map"><span class="links_name"></span>Route</i></a></li>
+            <li><a href="#info_card"><i class="las la-info-circle"><span class="links_name">General</span></i></a></li>
+            <li><a href="#schedule_card"><i class="lar la-calendar-check"><span class="links_name">Schedule</span></i></a></li> 
+            <li><a href="#map_card"><i class="las la-map"><span class="links_name"></span>Route</i></a></li>
         </ul>
         <!-- profile information -->
         <div class="profile_content">
@@ -53,7 +57,7 @@
             <h1>Driver</h1>
         </header>
         <main>
-            <div class="card">
+            <div class="card" id="info_card">
                 <div ><center><h2>General information</h2></center></div>
             </div>
             
@@ -80,7 +84,7 @@
             </div>
             <div class="espacio">.</div>
             <!-- schedule information -->
-            <div class="card">
+            <div class="card" id="schedule_card">
                 <div ><center><h2>Schedule</h2></center></div>
             </div>
             <div class="schedule_card">
@@ -144,16 +148,16 @@
                     </div>
                 </div>
             </div>
-
+            <div class="espacio">.</div>
             <!-- map card -->
-            <div class="map_card">
+            <div class="map_card" id="map_card">
                 <div>
                     <div>
-                        <h1>Map</h1>
-                        <span>Driver Status</span>
-                        <div class="tracking_map">
-                            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.06590014696123%2C4.64555434471823%2C-74.06152814626695%2C4.647944357960606&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=19/4.64675/-74.06371">Ver mapa más grande</a></small>
-                        </div>
+                        <h1>
+                            <center>Map</center>
+                        </h1>
+                        <div id="map"></div>
+                        
                     </div>
                 </div>
             </div>
