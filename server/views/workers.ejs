@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js" integrity="sha512-NxlWEbNbTV6acWnTsWRLIiwzOw0IwHQOYUCKBiu/NqZ+5jSy7gjMbpYI+/4KvaNuZ1qolbw+Vnd76pbIUYEG8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="icon" type="image/png" href="../resources/app_logo_claro.png">
+    <link rel="stylesheet" href="../public/css/fleet.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="Mara">
+                <span><img src="../resources/app_logo_oscuro.png"></span>
+            </div>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <a href="/dashboard">
+                    <i class="las la-project-diagram"></i>
+                    <span class="links_name">Summary</span>
+                </a>
+            </li>
+            <li>
+                <a href="/driver">
+                    <i class="las la-car"></i>
+                    <span class="links_name">Drivers</span>
+                </a>
+            </li>
+            <li>
+                <a href="/dispatcher">
+                    <i class="las la-box-open"></i>
+                    <span class="links_name">Dispatchers</span>
+                </a>
+            </li>
+            <li>
+                <a href="/register">
+                    <i class="lab la-wpforms"></i>
+                    <span class="links_name">Register</span>
+                </a>
+            </li>
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../resources/profile_pic.jpg" alt="">
+                    <div class="name_job">
+                        <div class="name"><%= user.charAt(0).toUpperCase() + user.slice(1) %> </div>
+                        <div class="job">Administrator</div>
+                    </div>
+                </div>
+                <a href="/logout">
+                    <i class="las la-sign-out-alt" id="log_out"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <header>
+            <h2>
+                Dispatchers list
+            </h2>
+        </header>
+        <main>
+            <div class="fleet_info">
+                <div class="fleet_list">
+                    <div class="card">
+                        <div class="card_header">
+                            <h1>Dispatcher's Information</h1>
+                            <a href="/register">
+                            <button>Add a new dispatcher <span class="las la-plus-circle"></span></button>
+                        </a>
+                        </div>
+                        <div class="card_body">
+                            <div class="table_responsive">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Identification</td>
+                                            <td>First Name</td>
+                                            <td>Last Name</td>
+                                            <td>Address</td>
+                                            <td>Phone number</td>
+                                           
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if (typeof data2 != 'undefined') { %>
+                                            <% for(i=0; data2.length>i; i++){ %>
+                                           <tr>
+                                               <td><%=data2[i]%></td>
+                                               <td><%=data3[i]%></td>
+                                               <td><%=data4[i]%></td>
+                                               <td><%=data5[i]%></td>
+                                               <td><%=data6[i]%></td>
+                                               <td>
+                                                <% if(data7[i]==0){  %>
+                                                    <span class="status verde"></span>
+                                                    NOT WORKING
+                                                    <% } %>
+                                                    <% if(data7[i]==1){  %>
+                                                        <span class="status morado"></span>
+                                                        BREAK
+                                                        <% } %>
+                                                        <% if(data7[i]==2){  %>
+                                                         <span class="status azul"></span>
+                                                         WORKING
+                                                         <% } %>
+                                               </td>
+                                           </tr>
+                                       <%}%> <% }%>
+                                      
+                                       
+        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="../data/script.js"></script>
+</html>

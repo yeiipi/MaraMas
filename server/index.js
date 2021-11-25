@@ -433,9 +433,9 @@ app.get("/dispatcher", checkAdmin, (req, res)=>{
     
 })
 
-app.get("/driver/vehicles", checkAdmin, (req, res)=>{
+app.get("/dispatcher/employees", checkAdmin, (req, res)=>{
     const datossss= {}
-            pool.query(`SELECT * FROM vehicle
+            pool.query(`SELECT * FROM dispatcher
             `,(err, results)=>{
                 if(err){
                     throw err
@@ -449,14 +449,14 @@ app.get("/driver/vehicles", checkAdmin, (req, res)=>{
                 
                 for(p=0; p<results.rows.length; p++){
                     
-                    datossss.data2.push(results.rows[p].license_plate)
-                    datossss.data3.push(results.rows[p].tipo)
-                    datossss.data4.push(results.rows[p].model)
-                    datossss.data5.push(results.rows[p].mechanical_status)
-                    datossss.data6.push(results.rows[p].brand)
-                    datossss.data7.push(results.rows[p].capacity)
+                    datossss.data2.push(results.rows[p].id_number)
+                    datossss.data3.push(results.rows[p].first_name)
+                    datossss.data4.push(results.rows[p].last_name)
+                    datossss.data5.push(results.rows[p].address)
+                    datossss.data6.push(results.rows[p].phone_num)
+                    datossss.data7.push(results.rows[p].status)
                 }
-                res.render("fleet", {
+                res.render("workers", {
                     user: req.user.user_name,
                     data1: datossss.data1,
                     data2: datossss.data2,
@@ -469,6 +469,42 @@ app.get("/driver/vehicles", checkAdmin, (req, res)=>{
             })
         })
 
+        app.get("/driver/vehicles", checkAdmin, (req, res)=>{
+            const datossss= {}
+                    pool.query(`SELECT * FROM vehicle
+                    `,(err, results)=>{
+                        if(err){
+                            throw err
+                        }
+                         datossss.data2=[]
+                         datossss.data3=[]
+                         datossss.data4=[]
+                         datossss.data5=[]
+                         datossss.data6=[]
+                         datossss.data7=[]
+                        
+                        for(p=0; p<results.rows.length; p++){
+                            
+                            datossss.data2.push(results.rows[p].license_plate)
+                            datossss.data3.push(results.rows[p].tipo)
+                            datossss.data4.push(results.rows[p].model)
+                            datossss.data5.push(results.rows[p].mechanical_status)
+                            datossss.data6.push(results.rows[p].brand)
+                            datossss.data7.push(results.rows[p].capacity)
+                        }
+                        res.render("fleet", {
+                            user: req.user.user_name,
+                            data1: datossss.data1,
+                            data2: datossss.data2,
+                            data3: datossss.data3,
+                            data4: datossss.data4,
+                            data5: datossss.data5,
+                            data6: datossss.data6,
+                            data7: datossss.data7
+                        })
+                    })
+                })
+        
 app.get("/driver", checkAdmin,(req,res)=>{
 
     pool.query(`SELECT COUNT(*) FROM vehicle WHERE mechanical_status= true
@@ -1140,6 +1176,7 @@ app.post("/location", (req, res)=>{
         if(err){
             throw err
         }
+        res.send("Coma pipi")
     })
 
     

@@ -156,6 +156,16 @@
     font-size: 12px;
   }
   
+  .status.morado {
+    background:purple;
+  }
+  
+  .status.verde {
+    background: #fb8500;
+  }
+  .status.azul {
+    background: #00acee;
+  }
   .profile #log_out {
     position: absolute;
     left: 88%;
