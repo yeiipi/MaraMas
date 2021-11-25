@@ -10,8 +10,17 @@
     <link rel="stylesheet" href="../public/css/driver.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <!-- Show locations on map -->
+    <<!-- Show locations on map -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD73z8FbBBobZd9RORGZXWraLpWXiGlDWo"></script>
+    <script type="text/javascript" src="../public/data/plot_on_map.js"></script>
+
+
+
 </head>
-<body>
+<div id ="info" value= "<%=data6%>"></div>
+<body id="bodyyy" onload= InitMap()>
+
     <div class="sidebar">
         <div class="logo_content">
             <div class="Mara">
@@ -129,8 +138,11 @@
                     <div>
                         <h1>Map</h1>
                         <span>Live driver status</span>
-                        <div class="tracking_map">
+                        <!-- <div class="tracking_map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.9644474669117!2d-74.07511574989229!3d4.600390896641528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a6e9378ecf%3A0xd01f37b4efea53db!2sUniversidad%20del%20Rosario!5e0!3m2!1ses-419!2sco!4v1634518173193!5m2!1ses-419!2sco" width="1010" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div> -->
+                        <div id="map">
+                            
                         </div>
                     </div>
                 </div>

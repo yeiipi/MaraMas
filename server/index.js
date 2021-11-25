@@ -493,6 +493,7 @@ app.get("/driver", checkAdmin,(req,res)=>{
                  datosss.data3=[]
                  datosss.data4=[]
                  datosss.data5=[]
+                 datosss.data6=[]
                 
                 for(p=0; p<results.rows.length; p++){
                     
@@ -501,15 +502,34 @@ app.get("/driver", checkAdmin,(req,res)=>{
                     datosss.data4.push(results.rows[p].model)
                     datosss.data5.push(results.rows[p].mechanical_status)
                 }
-                console.log(datosss.data3)
-                res.render("driver", {
-                    user: req.user.user_name,
-                    data1: datosss.data1,
-                    data2: datosss.data2,
-                    data3: datosss.data3,
-                    data4: datosss.data4,
-                    data5: datosss.data5,
-                })
+                pool.query(`SELECT id_vehicle, latitud, longitud FROM vehicle WHERE latitud is not null and longitud is not null
+                `, (err, results)=>{
+                    if(err){
+                        throw err
+                    }
+                    for(p=0; p<results.rows.length; p++){
+                        prev= []
+                        prev.push(results.rows[p].latitud)
+                        prev.push(results.rows[p].longitud)
+                        prev.push(results.rows[p].id_vehicle)
+                        datosss.data6.push(prev)
+                    }
+                    console.log(datosss.data6)
+                    res.render("driver", {
+                        user: req.user.user_name,
+                        data1: datosss.data1,
+                        data2: datosss.data2,
+                        data3: datosss.data3,
+                        data4: datosss.data4,
+                        data5: datosss.data5,
+                        data6: datosss.data6
+                    })
+
+                }
+
+                )
+
+               
             })
             
         })

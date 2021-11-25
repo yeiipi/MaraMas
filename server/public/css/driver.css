@@ -156,6 +156,12 @@
     font-size: 12px;
   }
   
+  #map {
+    height: 500px;
+    width: 100%;
+    background-color: grey;
+  }
+  
   .profile #log_out {
     position: absolute;
     left: 88%;
@@ -212,7 +218,7 @@
   }
   
   .map {
-    display: flex;
+    
     justify-content: space-between;
     background: #fff;
     padding: 10px;
