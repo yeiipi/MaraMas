@@ -12,6 +12,7 @@ const initializePassport= require("./passportconfig")
 const { default: datoss } = require("./prueba");
 const { allowedNodeEnvironmentFlags } = require("process");
 const { render } = require("ejs");
+const { urlToHttpOptions } = require("url");
 initializePassport(passport);
 
 // Middleware
@@ -1112,6 +1113,16 @@ app.post("/register-admin",checkAdmin, async(req, res)=>{
           )
       }
 });
+app.get("/paquetes", (req, res)=>{
+    pool.query(`SELECT * FROM package WHERE estimated_delivery<=date_trunc('day', current_date::date)
+    `, (err, results)=>{
+        if(err){
+            throw err
+        }
+        res.send(results.rows)
+    })
+})
+
 app.post("/register-dispatcher", checkAdmin, async(req, res)=>{
     let {
         user_name, user_lastname, user_email, user_password, confirm, address, phone_number, identification
