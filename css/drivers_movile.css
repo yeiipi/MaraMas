@@ -59,9 +59,9 @@ img{
     height: 100%;
     background-image: linear-gradient(
         135deg,
-        #277bab 20%,
-        #00acee 60%,
-        #00e0ff 100%
+        #00a300 20%,
+        #28ee00 60%,
+        #00ff62 100%
     );
     scroll-margin-inline: 100;
 }
@@ -146,7 +146,7 @@ img{
     position: relative;
     padding: 10px 6px;
     height: 60px;
-    background: #00e0ff 50%;
+    background: #00ff62 50%;
   }
   
   .profile_content .profile .profile_details {
