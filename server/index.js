@@ -920,7 +920,7 @@ app.post("/users/login",
             pool.query(` SELECT * FROM delivery_person WHERE id_auth=$1 
         `, [user_id], (err, results)=>{
             if (results.rows.length>0){
-                 res.redirect("/driver")
+                 res.redirect("/drivers-page")
             }else{
             pool.query(` SELECT * FROM administrator WHERE id_auth=$1 
         `, [user_id], (err, results)=>{
@@ -1113,6 +1113,14 @@ app.post("/register-admin",checkAdmin, async(req, res)=>{
           )
       }
 });
+
+app.get("/drivers-page", checkDriver, (req, res)=>{
+    res.render("driver-page", {
+        user: req.user.user_name
+    })
+
+})
+
 app.get("/paquetes", (req, res)=>{
     pool.query(`SELECT * FROM package WHERE estimated_delivery<=date_trunc('day', current_date::date) and delivery_date is null
     `, (err, results)=>{
@@ -1218,6 +1226,23 @@ function checkAdmin(req, res, next) {
 function checkDispat(req, res, next){
     if (req.isAuthenticated()) {
         pool.query(`SELECT * FROM dispatcher WHERE id_auth=$1
+        `, [req.user.user_id], (err,results)=>{
+            if(results.rows.length>0){
+                return next()
+            }
+            else{
+                res.status(401).render("401")
+            }
+        })
+    }
+  else{
+    res.redirect("/users/login")
+    }
+}
+
+function checkDriver(req, res, next){
+    if (req.isAuthenticated()) {
+        pool.query(`SELECT * FROM delivery_person WHERE id_auth=$1
         `, [req.user.user_id], (err,results)=>{
             if(results.rows.length>0){
                 return next()
