@@ -1114,7 +1114,7 @@ app.post("/register-admin",checkAdmin, async(req, res)=>{
       }
 });
 app.get("/paquetes", (req, res)=>{
-    pool.query(`SELECT * FROM package WHERE estimated_delivery<=date_trunc('day', current_date::date)
+    pool.query(`SELECT * FROM package WHERE estimated_delivery<=date_trunc('day', current_date::date) and delivery_date is null
     `, (err, results)=>{
         if(err){
             throw err
